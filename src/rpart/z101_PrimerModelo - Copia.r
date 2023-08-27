@@ -7,7 +7,7 @@ require("rpart")
 require("rpart.plot")
 
 # Aqui se debe poner la carpeta de la materia de SU computadora local
-setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
+setwd("X:\\gdrive\\uba2023\\") # Establezco el Working Directory
 
 # cargo el dataset
 dataset <- fread("./datasets/competencia_01.csv")
@@ -21,10 +21,10 @@ modelo <- rpart(
         formula = "clase_ternaria ~ .",
         data = dtrain, # los datos donde voy a entrenar
         xval = 0,
-        cp = -0.5, # esto significa no limitar la complejidad de los splits
-        minsplit = 400, # minima cantidad de registros para que se haga el split
-        minbucket = 5, # tamaño minimo de una hoja
-        maxdepth = 6
+        cp = -0.3, # esto significa no limitar la complejidad de los splits
+        minsplit = 0, # minima cantidad de registros para que se haga el split
+        minbucket = 1, # tamaño minimo de una hoja
+        maxdepth = 3
 ) # profundidad maxima del arbol
 
 

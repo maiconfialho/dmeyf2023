@@ -1,4 +1,4 @@
- # esqueleto de grid search
+# esqueleto de grid search
 # se espera que los alumnos completen lo que falta
 #   para recorrer TODOS cuatro los hiperparametros
 
@@ -11,7 +11,7 @@ require("parallel")
 
 PARAM <- list()
 # reemplazar por las propias semillas
-PARAM$semillas <- c(102191, 200177, 410551, 552581, 892237)
+PARAM$semillas <- c(100005, 200005, 300005, 400005, 500005)
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset
@@ -89,14 +89,17 @@ ArbolesMontecarlo <- function(semillas, param_basicos) {
 #------------------------------------------------------------------------------
 
 # Aqui se debe poner la carpeta de la computadora local
-setwd("~/buckets/b1/") # Establezco el Working Directory
+#setwd("C:/Users/maico/iCloudDrive/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
+
 # cargo los datos
 
 # cargo los datos
-dataset <- fread("./datasets/dataset_pequeno.csv")
+dataset <- fread("./datasets/competencia_01.csv")
 
 # trabajo solo con los datos con clase, es decir 202107
 dataset <- dataset[clase_ternaria != ""]
+dataset <- dataset[foto_mes == 202103]
 
 # genero el archivo para Kaggle
 # creo la carpeta donde va el experimento
@@ -133,7 +136,7 @@ for (vmax_depth in c(4, 6, 8, 10, 12, 14)) {
     ) # profundidad máxima del arbol
 
     # Un solo llamado, con la semilla 17
-    ganancia_promedio <- ArbolesMontecarlo(ksemillas, param_basicos)
+    ganancia_promedio <- ArbolesMontecarlo(PARAM$semillas, param_basicos)
 
     # escribo los resultados al archivo de salida
     cat(
@@ -144,5 +147,7 @@ for (vmax_depth in c(4, 6, 8, 10, 12, 14)) {
       vmin_split, "\t",
       ganancia_promedio, "\n"
     )
+    cat("vmax_depth:", vmax_depth, "vmin_split:", vmin_split, "ganancia_promedio:", ganancia_promedio, "\n")
+    
   }
 }
