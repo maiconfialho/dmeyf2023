@@ -1,4 +1,4 @@
-# esqueleto de grid search
+ # esqueleto de grid search
 # se espera que los alumnos completen lo que falta
 #   para recorrer TODOS cuatro los hiperparametros
 
