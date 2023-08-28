@@ -7,7 +7,8 @@ require("rpart")
 require("rpart.plot")
 
 # Aqui se debe poner la carpeta de la materia de SU computadora local
-setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
+#setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
+setwd("~/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
 
 # cargo el dataset
 dataset <- fread("./datasets/competencia_01.csv")

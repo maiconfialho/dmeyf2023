@@ -7,7 +7,7 @@ require("parallel")
 
 PARAM <- list()
 # reemplazar por las propias semillas
-PARAM$semillas <- c(102191, 200177, 410551, 552581, 892237)
+PARAM$semillas <- c(100005, 200005, 300005, 400005, 500005)
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset que consiste
@@ -78,7 +78,7 @@ ArbolEstimarGanancia <- function(semilla, param_basicos) {
 #------------------------------------------------------------------------------
 
 # Aqui se debe poner la carpeta de la computadora local
-setwd("X:\\gdrive\\uba2023\\") # Establezco el Working Directory
+setwd("~/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
 
 # cargo los datos
 dataset <- fread("./datasets/competencia_01.csv")
@@ -88,10 +88,10 @@ dataset <- dataset[foto_mes==202103]
 
 
 param_basicos <- list(
-  "cp" = -1, # complejidad minima
-  "minsplit" = 900, # minima cant de registros en un nodo para hacer el split
-  "minbucket" = 440, # minima cantidad de registros en una hoja
-  "maxdepth" = 5
+  "cp" = -0.5, # complejidad minima
+  "minsplit" = 400, # minima cant de registros en un nodo para hacer el split
+  "minbucket" = 5, # minima cantidad de registros en una hoja
+  "maxdepth" = 6
 ) # profundidad máxima del arbol
 
 # Un solo llamado, con la semilla 17

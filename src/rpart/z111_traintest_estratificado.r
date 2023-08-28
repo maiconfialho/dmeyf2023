@@ -35,7 +35,7 @@ particionar <- function(
 
 # Aqui se debe poner la carpeta de la computadora local
 # Establezco el Working Directory
-setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
+setwd("~/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
 
 # cargo los datos
 dataset <- fread("./datasets/competencia_01.csv")
@@ -50,7 +50,7 @@ particionar(dataset, division = c(7, 3),
 
 
 param_basicos <- list(
-  "cp" = -1, # complejidad minima
+  "cp" = -0.5, # complejidad minima
   "minsplit" = 400, # minima cantidad de regs en un nodo para hacer el split
   "minbucket" = 10, # minima cantidad de regs en una hoja
   "maxdepth" = 8 # profundidad máxima del arbol
