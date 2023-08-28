@@ -42,7 +42,7 @@ graficar_campo <- function(campo) {
   lines(densidad_B, col = "red", lty = 2)
 
   legend("topright",
-    legend = c("202107", "202109"),
+    legend = c("202103", "202105"),
     col = c("blue", "red"), lty = c(1, 2)
   )
 }
