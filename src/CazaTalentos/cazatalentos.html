@@ -1656,16 +1656,16 @@ df_cazatalentos9</code></pre>
 <h3>Calcular la media y la varianza de las jugadoras de Cazatalentos
 5</h3>
 <pre class="r"><code>media_jugadoras5 &lt;- rowMeans(df_cazatalentos5[, 2:4], na.rm = TRUE)
-varianza_jugadoras5 &lt;- apply(df_cazatalentos5[, 2:4], 1, var, na.rm = TRUE)</code></pre>
+sd_jugadoras5 &lt;- apply(df_cazatalentos5[, 2:4], 1, sd, na.rm = TRUE)</code></pre>
 </div>
 <div id="mostrar-los-resultados" class="section level3">
 <h3>Mostrar los resultados</h3>
 <p>Média de las jugadoras de Cazatalentos 5:</p>
 <pre class="r"><code>print(media_jugadoras5)</code></pre>
 <pre><code>## [1] 74.66667 78.00000 77.66667 75.00000 76.66667</code></pre>
-<p>Varianza de las jugadoras de Cazatalentos 5:</p>
-<pre class="r"><code>print(varianza_jugadoras5)</code></pre>
-<pre><code>## [1] 80.33333 28.00000 30.33333 39.00000 14.33333</code></pre>
+<p>Desviación estándar de las jugadoras de Cazatalentos 5:</p>
+<pre class="r"><code>print(sd_jugadoras5)</code></pre>
+<pre><code>## [1] 8.962886 5.291503 5.507571 6.244998 3.785939</code></pre>
 </div>
 </div>
 <div id="cazatalentos-9-no-proporcionó-datos-pero-los-tenemos-para-un-análisis" class="section level2">
@@ -1675,16 +1675,16 @@ análisis</h2>
 <h3>Calcular la media y la varianza de la jugadora de Cazatalentos
 9</h3>
 <pre class="r"><code>media_jugadora9 &lt;- mean(df_cazatalentos9$Aciertos)
-varianza_jugadora9 &lt;- var(df_cazatalentos9$Aciertos)</code></pre>
+sd_jugadora9 &lt;- sd(df_cazatalentos9$Aciertos)</code></pre>
 </div>
 <div id="mostrar-los-resultados-1" class="section level3">
 <h3>Mostrar los resultados</h3>
 <p>Média de la jugadora de Cazatalentos 9:</p>
 <pre class="r"><code>print(media_jugadora9)</code></pre>
 <pre><code>## [1] 70.1</code></pre>
-<p>Varianza de la jugadora de Cazatalentos 9:</p>
-<pre class="r"><code>print(varianza_jugadora9)</code></pre>
-<pre><code>## [1] 30.54444</code></pre>
+<p>Desviación estándar de la jugadora de Cazatalentos 9:</p>
+<pre class="r"><code>print(sd_jugadora9)</code></pre>
+<pre><code>## [1] 5.526703</code></pre>
 </div>
 </div>
 <div id="conclusión" class="section level1">
@@ -1712,7 +1712,7 @@ términos de promedio y varianza de los aciertos. La falta de datos de la
 primera ronda es una limitación significativa.</p></li>
 <li><p><strong>Cazatalentos 9</strong>: Esta estrategia no proporcionó
 datos, pero los tenemos para su análisis. La media de la jugadora de
-Cazatalentos 9 es del 70.1, con una varianza del 30.54444.</p></li>
+Cazatalentos 9 es de 70.1, con una sd de 5.526703.</p></li>
 <li><p><strong>Cazatalentos 3</strong>: Aunque solo evaluó a dos
 jugadoras, la estrategia realizó una prueba más amplia de 100 tiros para
 cada una. Esto proporcionó una muestra más grande para evaluar el
