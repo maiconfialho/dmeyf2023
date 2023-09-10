@@ -34,7 +34,7 @@ df_cazatalentos9
 ### Calcular la media y la varianza de las jugadoras de Cazatalentos 5
 ```{r}
 media_jugadoras5 <- rowMeans(df_cazatalentos5[, 2:4], na.rm = TRUE)
-varianza_jugadoras5 <- apply(df_cazatalentos5[, 2:4], 1, var, na.rm = TRUE)
+sd_jugadoras5 <- apply(df_cazatalentos5[, 2:4], 1, sd, na.rm = TRUE)
 ```
 
 ### Mostrar los resultados
@@ -43,16 +43,16 @@ Média de las jugadoras de Cazatalentos 5:
 print(media_jugadoras5)
 ```
 
-Varianza de las jugadoras de Cazatalentos 5:
+Desviación estándar de las jugadoras de Cazatalentos 5:
 ```{r}
-print(varianza_jugadoras5)
+print(sd_jugadoras5)
 ```
 
 ## Cazatalentos 9 no proporcionó datos, pero los tenemos para un análisis
 ### Calcular la media y la varianza de la jugadora de Cazatalentos 9
 ```{r}
 media_jugadora9 <- mean(df_cazatalentos9$Aciertos)
-varianza_jugadora9 <- var(df_cazatalentos9$Aciertos)
+sd_jugadora9 <- sd(df_cazatalentos9$Aciertos)
 ```
 
 ### Mostrar los resultados
@@ -61,9 +61,9 @@ Média de la jugadora de Cazatalentos 9:
 print(media_jugadora9)
 ```
 
-Varianza de la jugadora de Cazatalentos 9:
+Desviación estándar de la jugadora de Cazatalentos 9:
 ```{r}
-print(varianza_jugadora9)
+print(sd_jugadora9)
 ```
 
 # Conclusión
@@ -76,7 +76,7 @@ print(varianza_jugadora9)
 
 4. **Cazatalentos 7**: Realizó dos rondas, pero como no tenemos información sobre la primera ronda, no podemos determinar si la elección de la mejor jugadora en la segunda ronda fue la mejor en términos de promedio y varianza de los aciertos. La falta de datos de la primera ronda es una limitación significativa.
 
-5. **Cazatalentos 9**: Esta estrategia no proporcionó datos, pero los tenemos para su análisis. La media de la jugadora de Cazatalentos 9 es del 70.1, con una varianza del 30.54444.
+5. **Cazatalentos 9**: Esta estrategia no proporcionó datos, pero los tenemos para su análisis. La media de la jugadora de Cazatalentos 9 es de 70.1, con una sd de 5.526703.
 
 6. **Cazatalentos 3**: Aunque solo evaluó a dos jugadoras, la estrategia realizó una prueba más amplia de 100 tiros para cada una. Esto proporcionó una muestra más grande para evaluar el rendimiento, pero la falta de opciones limita la certeza de que la jugadora elegida fue la mejor.
 
