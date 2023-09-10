@@ -1,0 +1,53 @@
+library(dplyr)
+
+df_cazatalentos5 <- data.frame(
+  Candidata = c("A", "B", "C", "D", "E"),
+  Aciertos1 = c(85, 84, 84, 82, 81),
+  Aciertos2 = c(69, 74, 74, 70, 75),
+  Aciertos3 = c(70, 76, 75, 73, 74)
+)
+df_cazatalentos5
+
+df_cazatalentos9 <- data.frame(
+  Candidata = c("A"),
+  Aciertos = c(68, 74, 78, 70, 68, 63, 80, 68, 67, 65)
+)
+df_cazatalentos9
+
+
+## Solo Cazatalentos 5 proporcionó datos para nuestro estudio
+### Calcular la media y la varianza de las jugadoras de Cazatalentos 5
+media_jugadoras5 <- rowMeans(df_cazatalentos5[, 2:4], na.rm = TRUE)
+sd_jugadoras5 <- apply(df_cazatalentos5[, 2:4], 1, sd, na.rm = TRUE)
+
+### Mostrar los resultados
+### Média de las jugadoras de Cazatalentos 5:
+print(media_jugadoras5)
+
+###Desviación estándar de las jugadoras de Cazatalentos 5:
+print(sd_jugadoras5)
+
+
+## Cazatalentos 9 no proporcionó datos, pero los tenemos para un análisis
+### Calcular la media y la varianza de la jugadora de Cazatalentos 9
+media_jugadora9 <- mean(df_cazatalentos9$Aciertos)
+sd_jugadora9 <- sd(df_cazatalentos9$Aciertos)
+
+
+### Mostrar los resultados
+###Média de la jugadora de Cazatalentos 9:
+print(media_jugadora9)
+
+###Desviación estándar de la jugadora de Cazatalentos 9:
+print(sd_jugadora9)
+
+#Conclusión
+#1. Cazatalentos 8: Esta estrategia eligió a la jugadora en función de información detallada sobre su rendimiento anterior, incluyendo el historial de tiros libres. La elección fue informada y basada en datos sólidos.
+#2. Cazatalentos 6: Inicialmente, la selección se hizo en función de la observación subjetiva. Sin embargo, la confirmación del rendimiento ocurrió a través de una prueba posterior en la que la jugadora acertó el 80%. Esto agregó una capa de validación al proceso de selección.
+#3. Cazatalentos 5: Esta estrategia realizó tres rondas de tiros libres y eligió a la jugadora con el mayor número de aciertos en la primera ronda. Sin embargo, es importante tener en cuenta que los resultados mostraron una variabilidad considerable, lo que sugiere que podría haber habido un error en la selección de la mejor jugadora.
+#4. Cazatalentos 7: Realizó dos rondas, pero como no tenemos información sobre la primera ronda, no podemos determinar si la elección de la mejor jugadora en la segunda ronda fue la mejor en términos de promedio y varianza de los aciertos. La falta de datos de la primera ronda es una limitación significativa.
+#5. Cazatalentos 9: Esta estrategia no proporcionó datos, pero los tenemos para su análisis. La media de la jugadora de Cazatalentos 9 es de 70.1, con una sd de 5.526703.
+#6. Cazatalentos 3: Aunque solo evaluó a dos jugadoras, la estrategia realizó una prueba más amplia de 100 tiros para cada una. Esto proporcionó una muestra más grande para evaluar el rendimiento, pero la falta de opciones limita la certeza de que la jugadora elegida fue la mejor.
+#7. Cazatalentos 2: Con 200 jugadoras, la estrategia eligió a la que tuvo el mejor rendimiento en 100 tiros. Sin embargo, esta aproximación se basa en una sola prueba de tiros y carece de información adicional sobre el historial o la consistencia del rendimiento.
+#8. Cazatalentos 1: Con 100 jugadoras, esta estrategia también eligió a la jugadora con el mejor rendimiento en 100 tiros. Al igual que Cazatalentos 2, esta aproximación se basa en una sola prueba de tiros.
+#9. Cazatalentos 4: Aunque evaluó a 100 jugadoras, la estrategia lo hizo con solo 10 tiros para cada una. Esto significa que el rendimiento pudo haber sido influenciado por un número muy limitado de intentos.
