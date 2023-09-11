@@ -1,4 +1,4 @@
-Instruciones:
+Instrucciones:
 Passo 1: Ejecutar z101_target_sql.ipynb
 Passo 2: Ejecutar z101_PrimerModelo.r con los hyperparametros abajo\
         xval = 5,
