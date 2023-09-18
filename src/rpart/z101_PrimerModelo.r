@@ -8,7 +8,7 @@ require("rpart.plot")
 
 # Aqui se debe poner la carpeta de la materia de SU computadora local
 #setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
-setwd("~/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
+setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023")
 
 # cargo el dataset
 dataset <- fread("./datasets/competencia_01.csv")
@@ -19,13 +19,13 @@ dapply <- dataset[foto_mes == 202105] # defino donde voy a aplicar el modelo
 # genero el modelo,  aqui se construye el arbol
 # quiero predecir clase_ternaria a partir de el resto de las variables
 modelo <- rpart(
-        formula = "clase_ternaria ~ .",
+        formula = "clase_ternaria ~ . - numero_de_cliente",
         data = dtrain, # los datos donde voy a entrenar
         xval = 0,
         cp = -0.5, # esto significa no limitar la complejidad de los splits
         minsplit = 400, # minima cantidad de registros para que se haga el split
         minbucket = 5, # tamaño minimo de una hoja
-        maxdepth = 6
+        maxdepth = 10
 ) # profundidad maxima del arbol
 
 
