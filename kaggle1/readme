@@ -1,0 +1,8 @@
+Instrucciones:
+Passo 1: Ejecutar z101_target_sql.ipynb
+Passo 2: Ejecutar z101_PrimerModelo.r con los hyperparametros abajo\
+        xval = 5,
+        cp = -0.798067006597108
+        minsplit = 897
+        minbucket = 292
+        maxdepth = 8

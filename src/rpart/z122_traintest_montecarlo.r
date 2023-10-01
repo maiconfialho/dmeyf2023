@@ -91,7 +91,7 @@ param_basicos <- list(
   "cp" = -0.5, # complejidad minima
   "minsplit" = 400, # minima cant de registros en un nodo para hacer el split
   "minbucket" = 5, # minima cantidad de registros en una hoja
-  "maxdepth" = 6
+  "maxdepth" = 10
 ) # profundidad máxima del arbol
 
 # Un solo llamado, con la semilla 17

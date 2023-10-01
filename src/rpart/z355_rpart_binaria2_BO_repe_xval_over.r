@@ -1,6 +1,8 @@
 # Optimizacion Bayesiana de hiperparametros de  rpart
 # 10-repeated 5-fold Cross Validation
-# trabaja con la clase_ternaria
+# trabaja con la clase_binaria2
+#   POS={BAJA+1, BAJA+2}   NEG={CONTINUA}
+# prueba el nivel optimo de OVERSAMPLING
 
 # limpio la memoria
 rm(list = ls()) # remove all objects
@@ -20,13 +22,16 @@ require("mlrMBO")
 # Defino la  Optimizacion Bayesiana
 PARAM <- list()
 
-PARAM$home <- "~/Documents/Mestrado/2023-2/dmeyf2023/"
+PARAM$home <- "~/buckets/b1/"
 
-PARAM$experimento <- "HT3220"
+PARAM$experimento <- "HT3550"
 
 # Aqui van las 10 semillas que hacen el 10-repeated
 #  si se pone una sola semilla, se esta haciendo solo 5-fold xval
-PARAM$semilla_azar <- c(100005, 200005, 300005, 400005, 500005)
+PARAM$semilla_azar <- c(
+  102191, 200177, 410551, 552581, 892237,
+  753587, 247759, 253369, 955127, 800519
+)
 
 # folds del cross validation
 PARAM$xval_folds <- 5
@@ -40,6 +45,8 @@ PARAM$hs <- makeParamSet(
   makeIntegerParam("minsplit", lower = 1L, upper = 8000L),
   makeIntegerParam("minbucket", lower = 1L, upper = 4000L),
   makeIntegerParam("maxdepth", lower = 3L, upper = 20L),
+  makeIntegerParam("corte", lower = 5000L, upper = 15000L),
+  makeIntegerParam("oversampling", lower = 0L, upper = 200L),
   forbidden = quote(minbucket > 0.5 * minsplit)
 )
 # minbuket NO PUEDE ser mayor que la mitad de minsplit
@@ -107,13 +114,24 @@ particionar <- function(data, division, agrupa = "", campo = "fold",
 #  entreno en el resto de los folds
 # param tiene los hiperparametros del arbol
 
-ArbolSimple <- function(fold_test, data, param) {
+ArbolSimple <- function(fold_test, data, param, qfolds) {
   # genero el modelo
   # entreno en todo MENOS el fold_test que uso para testing
-  modelo <- rpart("clase_ternaria ~ .",
+
+  vpesos <<- rep(1, data[fold != fold_test, .N])
+
+  if (param$oversampling > 0) {
+    vpesos <<- data[
+      fold != fold_test,
+      ifelse(clase_ternaria == "CONTINUA", 1, param$oversampling)
+    ]
+  }
+
+  modelo <- rpart("clase_virtual ~ . - clase_ternaria",
     data = data[fold != fold_test, ],
     xval = 0,
-    control = param
+    control = param,
+    weights = vpesos
   )
 
   # aplico el modelo a los datos de testing
@@ -125,16 +143,21 @@ ArbolSimple <- function(fold_test, data, param) {
   )
 
   # esta es la probabilidad de baja
-  prob_baja2 <- prediccion[, "BAJA+2"]
+  prob_pos <- prediccion[, "POS"]
 
-  # calculo la ganancia
-  ganancia_testing <- data[fold == fold_test][
-    prob_baja2 > 1 / 40,
+  tb_final <- copy(data[fold == fold_test, list(clase_ternaria)])
+  tb_final[, prob := prob_pos]
+  setorder(tb_final, -prob)
+
+  # calculo la ganancia, los PARAM$corte de mayor probabilidad
+  ganancia_testing <- tb_final[
+    1:round(param$corte / qfolds),
     sum(ifelse(clase_ternaria == "BAJA+2",
       273000, -7000
     ))
   ]
 
+  rm(tb_final)
   # esta es la ganancia sobre el fold de testing, NO esta normalizada
   return(ganancia_testing)
 }
@@ -149,7 +172,7 @@ ArbolesCrossValidation <- function(data, param, qfolds, pagrupa, semilla) {
 
   ganancias <- mcmapply(ArbolSimple,
     seq(qfolds), # 1 2 3 4 5
-    MoreArgs = list(data, param),
+    MoreArgs = list(data, param, qfolds),
     SIMPLIFY = FALSE,
     mc.cores = PARAM$cores
   )
@@ -182,14 +205,13 @@ EstimarGanancia <- function(x) {
     gans <- c(gans, ganancia)
   }
 
-  # imprimo el vector con las ganancias de xval
-  # para que se aprecia la variabilidad aun con 5-fold
   cat(gans, "\n")
-
   # logueo
   xx <- x
+
   xx$xval_repeats <- length(PARAM$semilla_azar)
   xx$xval_folds <- PARAM$xval_folds
+
   xx$ganancia <- mean(gans)
   xx$iteracion <- GLOBAL_iteracion
   loguear(xx, arch = archivo_log)
@@ -208,6 +230,7 @@ dataset <- fread("./datasets/competencia_01.csv")
 # entreno en 202103
 dataset <- dataset[foto_mes == 202103]
 
+dataset[, clase_virtual := ifelse(clase_ternaria == "CONTINUA", "NEG", "POS")]
 
 # creo la carpeta donde va el experimento
 #  HT  representa  Hiperparameter Tuning

@@ -52,8 +52,8 @@ particionar(dataset, division = c(7, 3),
 param_basicos <- list(
   "cp" = -0.5, # complejidad minima
   "minsplit" = 400, # minima cantidad de regs en un nodo para hacer el split
-  "minbucket" = 10, # minima cantidad de regs en una hoja
-  "maxdepth" = 8 # profundidad máxima del arbol
+  "minbucket" = 5, # minima cantidad de regs en una hoja
+  "maxdepth" = 10 # profundidad máxima del arbol
 )
 
 # genero el modelo

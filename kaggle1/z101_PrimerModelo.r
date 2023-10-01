@@ -5,13 +5,16 @@
 require("data.table")
 require("rpart")
 require("rpart.plot")
+library(readxl)
+
 
 # Aqui se debe poner la carpeta de la materia de SU computadora local
-#setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023") # Establezco el Working Directory
-setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023")
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle1_entrega_final") # Establezco el Working Directory
+
+#setwd("~/Documents/Mestrado/2023-2/dmeyf2023") # Establezco el Working Directory
 
 # cargo el dataset
-dataset <- fread("./datasets/competencia_01.csv")
+dataset <- fread("../datasets/competencia_01.csv")
 
 dtrain <- dataset[foto_mes == 202103] # defino donde voy a entrenar
 dapply <- dataset[foto_mes == 202105] # defino donde voy a aplicar el modelo
@@ -19,21 +22,22 @@ dapply <- dataset[foto_mes == 202105] # defino donde voy a aplicar el modelo
 # genero el modelo,  aqui se construye el arbol
 # quiero predecir clase_ternaria a partir de el resto de las variables
 modelo <- rpart(
-        formula = "clase_ternaria ~ . - numero_de_cliente",
+        #formula = "clase_ternaria ~ .",
+        formula = clase_ternaria ~ . - numero_de_cliente, # Exclui 'numero_de_cliente'
         data = dtrain, # los datos donde voy a entrenar
-        xval = 0,
-        cp = -0.5, # esto significa no limitar la complejidad de los splits
-        minsplit = 400, # minima cantidad de registros para que se haga el split
-        minbucket = 5, # tamaño minimo de una hoja
-        maxdepth = 10
+        xval = 5,
+        cp = -0.798067006597108, # esto significa no limitar la complejidad de los splits
+        minsplit = 897, # minima cantidad de registros para que se haga el split
+        minbucket = 292, # tamaño minimo de una hoja
+        maxdepth = 8
 ) # profundidad maxima del arbol
 
 
 # grafico el arbol
-prp(modelo,
-        extra = 101, digits = -5,
-        branch = 1, type = 4, varlen = 0, faclen = 0
-)
+#prp(modelo,
+#        extra = 101, digits = -5,
+#        branch = 1, type = 4, varlen = 0, faclen = 0
+#
 
 
 # aplico el modelo a los datos nuevos
@@ -56,11 +60,11 @@ dapply[, Predicted := as.numeric(prob_baja2 > 1 / 40)]
 
 # genero el archivo para Kaggle
 # primero creo la carpeta donde va el experimento
-dir.create("./exp/")
-dir.create("./exp/KA2001")
+dir.create("exp/")
+dir.create("exp/KA2001")
 
 # solo los campos para Kaggle
 fwrite(dapply[, list(numero_de_cliente, Predicted)],
-        file = "./exp/KA2001/K101_001.csv",
+        file = "exp/KA2001/K101_001.csv",
         sep = ","
 )
