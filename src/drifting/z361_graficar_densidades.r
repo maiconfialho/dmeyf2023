@@ -49,7 +49,7 @@ graficar_campo <- function(campo) {
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
-setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023")
+setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
 dataset <- fread("./datasets/competencia_01.csv")

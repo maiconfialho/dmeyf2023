@@ -20,7 +20,7 @@ require("dplyr")
 
 
 # Poner la carpeta de la materia de SU computadora local
-setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023")
+setwd("/home/aleb/dmeyf23")
 # Poner sus semillas
 semillas <- c(17, 19, 23, 29, 31)
 
