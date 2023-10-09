@@ -165,7 +165,7 @@ Session.vim
 *.xdy
 *.tdo
 *.tmp
-*.RDATA
+*.RDataTmp
 # Python
 *.pyc
 
