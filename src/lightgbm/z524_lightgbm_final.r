@@ -22,13 +22,13 @@ PARAM$input$dataset <- "./datasets/competencia_02.csv.gz"
 PARAM$input$training <- c(202101, 202102, 202103, 202104, 202105)
 PARAM$input$future <- c(202107) # meses donde se aplica el modelo
 
-PARAM$finalmodel$semilla <- 102191
+PARAM$finalmodel$semilla <- 100005
 
-PARAM$finalmodel$num_iterations <- 4928
-PARAM$finalmodel$learning_rate <- 0.0189943331895954
-PARAM$finalmodel$feature_fraction <- 0.892623977897483
-PARAM$finalmodel$min_data_in_leaf <- 785
-PARAM$finalmodel$num_leaves <- 666
+PARAM$finalmodel$num_iterations <- 670
+PARAM$finalmodel$learning_rate <- 0.0100738668153211
+PARAM$finalmodel$feature_fraction <- 0.413040235996875
+PARAM$finalmodel$min_data_in_leaf <- 2858
+PARAM$finalmodel$num_leaves <- 161
 
 
 PARAM$finalmodel$max_bin <- 31
@@ -36,12 +36,12 @@ PARAM$finalmodel$max_bin <- 31
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Aqui empieza el programa
-setwd("~/buckets/b1")
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
 dataset <- fread(PARAM$input$dataset, stringsAsFactors = TRUE)
 
-
+dataset
 #--------------------------------------
 
 # paso la clase a binaria que tome valores {0,1}  enteros
@@ -53,7 +53,6 @@ dataset[, clase01 := ifelse(clase_ternaria %in% c("BAJA+2", "BAJA+1"), 1L, 0L)]
 
 # los campos que se van a utilizar
 campos_buenos <- setdiff(colnames(dataset), c("clase_ternaria", "clase01"))
-
 #--------------------------------------
 
 
@@ -77,6 +76,7 @@ dtrain <- lgb.Dataset(
   data = data.matrix(dataset[train == 1L, campos_buenos, with = FALSE]),
   label = dataset[train == 1L, clase01]
 )
+
 
 # genero el modelo
 # estos hiperparametros  salieron de una laaarga Optmizacion Bayesiana

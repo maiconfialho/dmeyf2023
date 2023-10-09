@@ -164,7 +164,8 @@ Session.vim
 *.vrb
 *.xdy
 *.tdo
-
+*.tmp
+*.RDATA
 # Python
 *.pyc
 
@@ -182,3 +183,5 @@ project/target
 .worksheet
 
 .vscode/settings.json
+datasets/competencia_02.csv - Copia.gz
+

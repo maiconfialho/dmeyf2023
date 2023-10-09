@@ -40,11 +40,11 @@ PARAM$experimento <- "HT5230"
 PARAM$input$dataset <- "./datasets/competencia_02.csv.gz"
 
  # los meses en los que vamos a entrenar
-PARAM$input$training <- c(202101, 202102, 202103, 202104, 202105)
+PARAM$input$training <- c(202101)
 
 # un undersampling de 0.1  toma solo el 10% de los CONTINUA
 PARAM$trainingstrategy$undersampling <- 1.0
-PARAM$trainingstrategy$semilla_azar <- 102191 # Aqui poner su  primer  semilla
+PARAM$trainingstrategy$semilla_azar <- 100005 # Aqui poner su  primer  semilla
 
 PARAM$hyperparametertuning$iteraciones <- 100
 PARAM$hyperparametertuning$xval_folds <- 5
@@ -52,7 +52,7 @@ PARAM$hyperparametertuning$POS_ganancia <- 273000
 PARAM$hyperparametertuning$NEG_ganancia <- -7000
 
 # Aqui poner su segunda semilla
-PARAM$hyperparametertuning$semilla_azar <- 200177
+PARAM$hyperparametertuning$semilla_azar <- 100005
 #------------------------------------------------------------------------------
 
 # Aqui se cargan los bordes de los hiperparametros
@@ -218,7 +218,7 @@ EstimarGanancia_lightgbm <- function(x) {
 # Aqui empieza el programa
 
 # Aqui se debe poner la carpeta de la computadora local
-setwd("~/buckets/b1/") # Establezco el Working Directory
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar el modelo
 dataset <- fread(PARAM$input$dataset)
@@ -327,5 +327,9 @@ if (!file.exists(kbayesiana)) {
   run <- mboContinue(kbayesiana) # retomo en caso que ya exista
 }
 
-
+colnames(dataset)
 cat("\n\nLa optimizacion Bayesiana ha terminado\n")
+
+
+
+

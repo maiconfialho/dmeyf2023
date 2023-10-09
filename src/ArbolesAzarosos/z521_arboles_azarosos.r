@@ -14,7 +14,7 @@ PARAM <- list()
 PARAM$experimento <- 5210
 
 # Establezco la semilla aleatoria, cambiar por SU primer semilla
-PARAM$semilla <- 102191
+PARAM$semilla <- 100005
 
 # parameetros rpart
 PARAM$rpart_param <- list(
@@ -36,11 +36,10 @@ PARAM$num_trees_max <- 500
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
 
-setwd("~/buckets/b1/") # Establezco el Working Directory
-
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/datasets")
 # cargo los datos
-dataset <- fread("./datasets/competencia_02.csv.gz")
-
+dataset <- fread("competencia_02.csv.gz")
+dataset
 
 # creo la carpeta donde va el experimento
 dir.create("./exp/", showWarnings = FALSE)
@@ -73,7 +72,7 @@ dapply[, prob_acumulada := 0]
 # Establezco cuales son los campos que puedo usar para la prediccion
 # el copy() es por la Lazy Evaluation
 campos_buenos <- copy(setdiff(colnames(dtrain), c("clase_ternaria")))
-
+campos_buenos
 
 
 # Genero las salidas
@@ -102,8 +101,9 @@ for (arbolito in 1:PARAM$num_trees_max) {
 
   # aplico el modelo a los datos que no tienen clase
   prediccion <- predict(modelo, dapply, type = "prob")
+  #print(prediccion)
 
-  dapply[, prob_acumulada := prob_acumulada + prediccion[, "BAJA+2"]]
+  dapply[, prob_acumulada := prob_acumulada + prediccion[, "baja+2"]]
 
   if (arbolito %in% grabar) {
     # Genero la entrega para Kaggle

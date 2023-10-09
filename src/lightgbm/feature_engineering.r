@@ -1,8 +1,16 @@
+rm(list = ls()) # remove all objects
+gc() # garbage collection
+
 require("data.table")
+library(dplyr)
+
 
 setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/") # Establezco el Directorio de Trabajo
 dataset <- fread("./datasets/competencia_02.csv.gz")
 dataset <- dataset[order(numero_de_cliente, foto_mes)]
+
+dataset <- dataset %>%
+  mutate_all(funs(lag = lag(.)))
 
 # Total de deudas
 colunas_deudas <- c("mprestamos_personales", "mprestamos_prendarios", "mprestamos_hipotecarios", "Visa_msaldototal", "Master_msaldototal")
@@ -175,16 +183,15 @@ dataset[, otros_cajeros := ifelse(dataset$matm < dataset$matm_other, 1, 0)]
 # Eliminar variables innecesarias
 columnas_para_eliminar <- c("ultimo_minversion1_pesos", "ultimo_minversion1_dolares", "ultimo_minversion2",
                             "ultimo_num_inversion1", "ultimo_num_inversion2",
-                            "saldo_anterior_ahorro", "saldo_anterior_corriente", "total_tarjetas_ultimo_mes",
-                            "uso_tarjeta_debito_ultimo_mes", "uso_tarjeta_visa_ultimo_mes", "uso_tarjeta_master_ultimo_mes",
-                            "uso_seguro_ultimo_mes", "paro_de_recibir_sueldo", "disminuyo_pago_mis_cuentas",
-                            "disminuyo_pago_servicios", "disminuyo_transferencias_emitidas",
-                            "disminuyo_transferencias_recibidas", "media_3_meses_saque",
+                            "saldo_anterior_ahorro", "saldo_anterior_corriente", "total_tarjetas_ult_mes",
+                            "uso_tar_debito_ult_mes", "uso_tar_visa_ult_mes", "uso_tar_master_ult_mes",
+                            "uso_seguro_ult_mes", "paro_de_recibir_sueldo", "media_3_meses_saque",
                             "media_3_meses_cheques_depositados", "media_3_meses_cheques_emitidos"
                         )
 
 # Eliminar las columnas especificadas del conjunto de datos
 dataset_limpio <- dataset[, !columnas_para_eliminar, with = FALSE]
+
 
 na_count <- rowSums(is.na(dataset))
 
@@ -194,12 +201,12 @@ infinitos_qty <- sum(unlist(infinitos))
 nans <- lapply(names(dataset),function(.name) dataset[ , sum(is.nan(get(.name)))])
 nans_qty <- sum(unlist(nans))
 
-fwrite(head(dataset, 1000),
-        "./datasets/competencia_02_fe_bruto.csv",
+fwrite(dataset, 1000,
+        "./datasets/competencia_02_fe_lag_bruto.csv",
         logical01= TRUE,
         sep= "," )
 
-fwrite(head(dataset_limpio, 1000),
-        "./datasets/competencia_02_fe_limpio.csv",
+fwrite(dataset_limpio,
+        "./datasets/competencia_02_fe_lag_limpio.csv",
         logical01= TRUE,
         sep= "," )
