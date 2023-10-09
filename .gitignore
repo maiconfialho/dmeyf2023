@@ -165,7 +165,7 @@ Session.vim
 *.xdy
 *.tdo
 *.tmp
-*.RDataTmp
+*.RDATA
 # Python
 *.pyc
 
@@ -183,5 +183,7 @@ project/target
 .worksheet
 
 .vscode/settings.json
+datasets/competencia_02.csv - Copia.gz
+
 datasets/competencia_02.csv - Copia.gz
 
