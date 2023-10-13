@@ -1,0 +1,71 @@
+**Introducción:**
+
+Buen día, CMO Miranda. Me gustaría presentar los resultados de nuestro reciente estudio basado en algoritmos de ciencia de datos que identificaron grupos de clientes con características distintas. Esta análisis nos ayudará a comprender mejor a nuestros clientes y a dirigir estrategias más eficaces. La razón principal detrás de este análisis es identificar a los clientes que dejaron de utilizar nuestro Paquete Premium, lo que nos proporciona información invaluable sobre cómo retener y atender a estos clientes.
+
+**Los Grupos Identificados:**
+
+En nuestro análisis, inicialmente identificamos seis grupos de clientes con características únicas:
+
+1. **Grupo 0 - Clientes Activos en el Home Banking:**
+   - Realizan muchas transacciones a través del home banking.
+   - Incluyen débitos automáticos en la tarjeta de crédito VISA y transferencias.
+   - No se enfocan en Acreditaciones de Haberes.
+
+2. **Grupo 1 - Clientes con Actividad Bancaria en Línea y Cuentas de Crédito:**
+   - Alta actividad en Home Banking y cuentas activas en la tarjeta de crédito VISA.
+   - Realizan transferencias sustanciales.
+   - A menudo tienen algún tipo de acuerdo de descubierto.
+
+3. **Grupo 2 - Clientes con Préstamos Personales y Actividad Bancaria en Línea:**
+   - Tienen deudas de préstamos personales.
+   - Están involucrados en transacciones a través del home banking, transferencias y uso frecuente de servicios de call center.
+
+4. **Grupo 3 - Clientes con Ingresos Estables y Saldos Altos:**
+   - Reciben Acreditaciones de Haberes en relación de dependencia.
+   - Mantienen saldos más altos en sus cuentas de caja de ahorros del Paquete Premium.
+   - Usan menos la tarjeta de crédito VISA.
+
+5. **Grupo 4 - Clientes con Préstamos Personales y Límite de Crédito en Cuentas de Tarjeta de Crédito Master:**
+   - Tienen deudas de préstamos personales y realizan transferencias.
+   - Poseen un límite de financiamiento en sus cuentas de tarjeta de crédito Master.
+   - Pueden poseer cuentas VISA.
+
+6. **Grupo 5 - Clientes que Reciben Acreditaciones de Haberes y Realizan Acreditaciones a Terceros:**
+   - Reciben varias Acreditaciones de Haberes en relación de dependencia y pago de empleadores acreditados.
+   - Mantienen un saldo más alto en sus cuentas de caja de ahorro del Paquete Premium.
+   - Usan menos la tarjeta de crédito VISA y cumplen con los pagos mínimos.
+
+**Agrupando Grupos Similares:**
+
+Luego de un análisis más profundo, decidimos combinar algunos grupos para simplificar y enfocar mejor nuestra estrategia. A continuación, te presento los cuatro grupos principales que hemos definido:
+
+**Nuevo Grupo 0 - "Clientes Activos en el Home Banking."**
+- Combina las características de los antiguos Grupos 0 y 6.
+
+**Nuevo Grupo 1 - "Clientes con Actividad Bancaria en Línea y Cuentas de Crédito."**
+- Combina las características de los antiguos Grupos 1 y 4.
+
+**Nuevo Grupo 2 - "Clientes con Préstamos Personales y Actividad Bancaria en Línea."**
+- Conserva las características del antiguo Grupo 2.
+
+**Nuevo Grupo 3 - "Clientes con Ingresos Estables y Saldos Altos."**
+- Conserva las características del antiguo Grupo 5.
+
+**Comisiones y Rentabilidad:**
+
+Ahora, lo fascinante es observar las diferencias en comisiones y rentabilidad entre estos grupos.
+
+[Inserir o Gráfico 1 aquí, representando la cantidad de clientes y porcentaje por grupo.]
+[Inserir o Gráfico 2 aquí, representando la media de comisiones y rentabilidad por grupo.]
+
+- **Nuevo Grupo 0** y **Nuevo Grupo 1** tienen medias significativas de comisiones y rentabilidad.
+- **Nuevo Grupo 2** genera una alta media de comisiones y rentabilidad.
+- **Nuevo Grupo 3** también contribuye con comisiones y rentabilidad, pero en menor medida en comparación con los grupos anteriores.
+
+**Conclusión:**
+
+Basándonos en estos resultados y las estrategias de agrupación de grupos similares, podemos presumir que dar más importancia a los **Nuevos Grupos 0 y 2** es una estrategia eficaz, ya que generan más comisiones y beneficios para el banco. Mientras que los **Nuevos Grupos 1 y 3** son valiosos, pueden no ser la prioridad principal.
+
+Estas informaciones nos ayudarán a refinar nuestras estrategias de atención al cliente y a dirigir nuestros recursos de manera más eficaz. Además, es importante destacar que esta base de clientes es especialmente relevante para identificar aquellos que han dejado de utilizar nuestro Paquete Premium y, por lo tanto, nos permite tomar medidas específicas para retenerlos.
+
+Espero que esta presentación sea útil y deseo que tenga un excelente día.

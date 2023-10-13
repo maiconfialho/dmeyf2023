@@ -1,0 +1,58 @@
+**Introducción:**
+
+Buen día, CMO Miranda. Me gustaría presentar los resultados de nuestro reciente estudio basado en algoritmos de ciencia de datos que identificaron grupos de clientes con características distintas. Esta análisis nos ayudará a comprender mejor a nuestros clientes y a dirigir estrategias más eficaces. La razón principal detrás de este análisis es identificar a los clientes que dejaron de utilizar nuestro Paquete Premium, lo que nos proporciona información invaluable sobre cómo retener y atender a estos clientes.
+
+**Los Grupos Identificados:**
+
+En nuestro análisis, inicialmente identificamos seis grupos distintos:
+1. **Grupo 0:**
+Clientes activos en el Home Banking que realizan muchas transacciones a través de este canal, incluyendo débitos automáticos en la tarjeta de crédito VISA y transferencias.
+2. **Grupo 1:**
+Clientes con alta actividad en el Home Banking y cuentas activas en la tarjeta de crédito VISA. Realizan transferencias sustanciales y a menudo tienen algún tipo de acuerdo de sobregiro.
+3. **Grupo 2:**
+Clientes con deudas de préstamos personales, involucrados en transacciones a través del Home Banking, transferencias y uso frecuente de servicios de call center.
+4. **Grupo 3:**
+Clientes con deudas de préstamos personales, uso frecuente de Internet y un historial de transferencias significativas. Poseen cuentas VISA.
+5. **Grupo 4:**
+Clientes con deudas de préstamos personales y transferencias, con un límite de financiamiento en sus cuentas de tarjetas de crédito Master. Pueden poseer cuentas VISA.
+6. **Grupo 5:**
+Clientes que reciben varias Acreditaciones de Haberes en relación de dependencia y pagos de empleadores acreditados. Mantienen un saldo más alto en sus cuentas de caja de ahorros del Paquete Premium, utilizan menos la tarjeta de crédito VISA y cumplen con los pagos mínimos.
+7. **Grupo 6:**
+Clientes activos en el Home Banking que realizan muchas transacciones a través de este canal, incluyendo transferencias. Poseen cuentas VISA y a menudo están registrados en el Home Banking.
+
+**Agrupando Grupos Similares:**
+
+Luego de un análisis más profundo, decidimos combinar algunos grupos para simplificar y enfocar mejor nuestra estrategia. A continuación, te presento los cuatro grupos principales que hemos definido:
+
+**Nuevo Grupo 0 - "Clientes Activos en el Home Banking."**
+- Combina las características de los antiguos Grupos 0 y 6.
+- Ambos grupos se caracterizan por tener clientes activos en el Home Banking y que realizan transacciones a través de este canal. Pueden agruparse como "Clientes Activos en el Home Banking."
+
+**Nuevo Grupo 1 - "Clientes con Actividad Bancaria en Línea y Cuentas de Crédito."**
+- Combina las características de los antiguos Grupos 1 y 4.
+- Estos grupos tienen características similares, incluyendo altas transacciones en Home Banking, cuentas de tarjeta de crédito (VISA o Master) y límite de crédito. Pueden agruparse como "Clientes con Actividad Bancaria en Línea y Cuentas de Crédito."
+
+**Nuevo Grupo 2 - "Clientes con Préstamos Personales y Actividad Bancaria en Línea."**
+- Combina las características de los antiguos Grupos 2 y 3.
+- Ambos grupos tienen deudas de préstamos personales y están involucrados en transferencias. Pueden agruparse como "Clientes con Préstamos Personales y Actividad Bancaria en Línea."
+
+**Nuevo Grupo 3 - "Clientes con Ingresos Estables."**
+- Conserva las características del antiguo Grupo 5.
+- Este grupo se caracteriza por tener clientes que reciben Acreditaciones de Haberes y realizan movimientos en cajeros automáticos. Puede mantenerse como un grupo separado de "Clientes con Ingresos Estables."
+
+**Comisiones y Rentabilidad:**
+
+Ahora, podemos observar las diferencias en comisiones y rentabilidad entre estos grupos.
+
+[Inserir o Gráfico 1 aquí, representando la cantidad de clientes y porcentaje por grupo.]
+[Inserir o Gráfico 2 aquí, representando la media de comisiones y rentabilidad por grupo.]
+
+- **Nuevo Grupo 0** y **Nuevo Grupo 1** tienen medias significativas de comisiones y rentabilidad.
+- **Nuevo Grupo 2** genera una alta media de comisiones y rentabilidad.
+- **Nuevo Grupo 3** también contribuye con comisiones y rentabilidad, pero en menor medida en comparación con los grupos anteriores.
+
+**Conclusión:**
+
+Estas informaciones nos ayudarán a refinar nuestras estrategias de atención al cliente y a dirigir nuestros recursos de manera más eficaz. A
+
+Espero que estos datos sean utiles y deseo que tenga un excelente día.

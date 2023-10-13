@@ -1,0 +1,58 @@
+**Introducción:**
+
+Buen día, CMO Miranda. Me gustaría presentar los resultados de nuestro reciente estudio basado en algoritmos de ciencia de datos que identificaron grupos de clientes con características distintas. Esta análisis nos ayudará a comprender mejor a nuestros clientes y a dirigir estrategias más eficaces. La razón principal detrás de este análisis es identificar a los clientes que dejaron de utilizar nuestro Paquete Premium, lo que nos proporciona información invaluable sobre cómo retener y atender a estos clientes.
+
+**Los Grupos Identificados:**
+
+En nuestro análisis, inicialmente identificamos seis grupos distintos:
+1. **Grupo 0:**
+Clientes activos en el Home Banking que realizan muchas transacciones a través de este canal, incluyendo débitos automáticos en la tarjeta de crédito VISA y transferencias.
+2. **Grupo 1:**
+Clientes con alta actividad en el Home Banking y cuentas activas en la tarjeta de crédito VISA. Realizan transferencias y  tienen algún tipo de acuerdo de crédito.
+3. **Grupo 2:**
+Clientes con deudas de préstamos personales, involucrados en transacciones a través del Home Banking, transferencias y uso frecuente de servicios de call center.
+4. **Grupo 3:**
+Clientes con deudas de préstamos personales, uso frecuente de Internet y un historial de transferencias significativas. Poseen cuentas VISA.
+5. **Grupo 4:**
+Clientes con deudas de préstamos personales y transferencias, con un límite de financiamiento  de tarjetas de crédito.
+6. **Grupo 5:**
+Clientes que reciben varias Acreditaciones de Haberes en relación de dependencia y realizan movimientos en cajeros automáticos. 
+7. **Grupo 6:**
+Clientes activos en el Home Banking que realizan muchas transacciones a través de este canal, incluyendo transferencias. Poseen cuentas VISA y amenudo están registrados en el Home Banking.
+
+**Agrupando Grupos Similares:**
+
+Luego de un análisis más profundo, decidimos combinar algunos grupos para simplificar y enfocar mejor nuestra estrategia. A continuación, te presento los cuatro grupos principales que hemos definido:
+
+**Nuevo Grupo 0 - "Clientes Activos en el Home Banking."**
+- Combina las características de los antiguos Grupos 0 y 6.
+- Ambos grupos se caracterizan por tener clientes activos en el Home Banking y que realizan transacciones a través de este canal. 
+
+**Nuevo Grupo 1 - "Clientes con Actividad Bancaria online y Cuentas de Crédito."**
+- Combina las características de los antiguos Grupos 1 y 4.
+- Estos grupos tienen características similares, incluyendo altas transacciones en Home Banking, cuentas de tarjeta de crédito (VISA o Master) y límite de crédito. 
+
+**Nuevo Grupo 2 - "Clientes con Préstamos Personales y Actividad Bancaria online."**
+- Combina las características de los antiguos Grupos 2 y 3.
+- Ambos grupos tienen deudas por préstamos personales y realizan transferencias online y uso frecuente de servicios de call center. 
+
+**Nuevo Grupo 3 - "Clientes con Ingresos Estables."**
+- Conserva las características del antiguo Grupo 5.
+- Este grupo se caracteriza por tener clientes que reciben Acreditaciones de Haberes y realizan movimientos en cajeros automáticos. Puede mantenerse como un grupo separado de "Clientes con Ingresos Estables."
+
+**Comisiones y Rentabilidad:**
+
+Ahora, podemos observar las diferencias en comisiones y rentabilidad entre estos grupos.
+
+En estas imágenes, presentamos dos gráficos que se complementan. El primer gráfico representa la cantidad de clientes que cancelaron el Paquete Premium, segmentados por grupo. En el segundo gráfico, mostramos los promedios de comisiones y rentabilidad de estos clientes, también segmentados por grupo.
+
+Lo que podemos observar es que, aunque el Grupo 1 tiene la mayor cantidad de clientes que cancelaron el Paquete Premium, el Grupo 2 se destaca notoriamente cuando consideramos la rentabilidad y las comisiones medias por cliente. Estos números sugieren que, en promedio, cada cliente perteneciente al Grupo 2 resulta más rentable para el banco en comparación con los otros grupos.
+
+[Inserir o Gráfico 1 aquí, representando la cantidad de clientes y porcentaje por grupo.]
+[Inserir o Gráfico 2 aquí, representando la media de comisiones y rentabilidad por grupo.]
+
+**Conclusión:**
+
+Estas informaciones nos ayudarán a refinar nuestras estrategias de atención al cliente y a dirigir nuestros recursos de manera más eficaz. 
+
+Espero que estos datos sean utiles y deseo que tenga un excelente día.
