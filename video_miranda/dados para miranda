@@ -1,0 +1,338 @@
+9 grupos
+grupos 0 ao 5, cancelaram a conta recebendo o saalario na mesma
+
+
+os grupos com mais clientes sao o 1 o 0 e o 5, grupo 1 com 172k de clientes
+os grupos 7 e 8 tem menos de 500 clientes
+
+principais caracteristicas do grupo 0
+positivas:
+chomebanking_transacciones (0.022004): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+ctarjeta_visa_debitos_automaticos (0.016578): Cantidad de débitos automáticos debitados durante el mes en las tarjeta de crédito VISA
+mtransferencias_emitidas (0.013244): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+mttarjeta_visa_debitos_automaticos (0.008407): Monto total de  débitos automáticos debitados durante el mes en la tarjeta de crédito VISA . Todo está convertido a pesos argentinos, al valor de la fecha de cierre del utlimo dia habil del mes.
+thomebanking (0.008173): {0, 1} indica si el cliente está adherido al Home Banking
+
+negativas para o modelo shapelet:
+foto_mes (-0.290685): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+cpayroll_trx (-0.325235): Cantidad de Acreditaciones de Haberes en relación de depencia que le hicieron al cliente en ese mes.  Un cliente puede estar en relacion de dependencia con mas de una empresa. Una empresa puede hacerle VARIOS depósitos al mismo empleado durante el mes.  Soalmente se consideran las acreditaciones de empresas que tienen un contrato con el banco.
+ctarjeta_visa (-0.364034): Cantidad de débitos automáticos debitados durante el mes en las tarjeta de crédito VISA
+mcaja_ahorro (-0.443888): Monto total de la caja de ahorro del Paquete Premium
+ctrx_quarter (-0.570689): Cantidad de movimientos voluntarios en las cuentas bancarias ( no tarjeta de credito ) que el cliente realizó en los ultimos 90 dias.
+
+principais caracteristicas do grupo 1
+positivas:
+homebanking_transacciones (0.012043): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+Visa_status (0.011846): { 0,  6, 7, 9 }   indica el estado de la cuenta de la tarjeta de crédito. 0 abierta,  6 en proceso de cierre, 7 en proceso avanzado de cierre, 9 cuenta cerrada.   Una cuenta cerrada puede volver a abrirse
+mtransferencias_emitidas (0.011104): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+cdescubierto_preacordado (0.010794): Si tiene un acuerdo de descubierto
+ctarjeta_visa (0.010609): Cantidad de cuentas VISA que posee el cliente. Una cuenta posee un titular y puede llegar a tener varios adicionales. El titular y/o adicionales pueden tener ( o no ) un plástico vigente. Aunque no es común, un cliente SI puede ser titular de más de una cuenta VISA
+
+negativas para o modelo shapelet:
+mcaja_ahorro (-0.260130): Monto total de la caja de ahorro del Paquete Premium
+foto_mes (-0.274485): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+cpayroll_trx (-0.336288): Cantidad de Acreditaciones de Haberes en relación de depencia que le hicieron al cliente en ese mes.  Un cliente puede estar en relacion de dependencia con mas de una empresa. Una empresa puede hacerle VARIOS depósitos al mismo empleado durante el mes.  Soalmente se consideran las acreditaciones de empresas que tienen un contrato con el banco.
+mpayroll (-0.393467): Monto total que le acreditaron los empleadores “acreditados”  al cliente durante el mes.
+ctrx_quarter (-0.473124): Cantidad de movimientos voluntarios en las cuentas bancarias ( no tarjeta de credito ) que el cliente realizó en los ultimos 90 dias.
+
+=begin
+grupo 2
+mprestamos_personales         0.056193
+mtransferencias_emitidas      0.012377
+chomebanking_transacciones    0.009752
+thomebanking                  0.003837
+ccallcenter_transacciones     0.001777
+                                ...   
+mcuentas_saldo               -0.313185
+Visa_delinquency             -0.342013
+foto_mes                     -0.546998
+mcaja_ahorro                 -0.787783
+Visa_Finiciomora             -1.919429
+=end
+principais caracteristicas do grupo 2
+positivas:
+mprestamos_personales (0.056193): Monto total de la deuda restante de todos los préstamos personales del cliente.
+mtransferencias_emitidas (0.012377): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+chomebanking_transacciones (0.009752): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+thomebanking (0.003837): {0, 1} indica si el cliente está adherido al Home Banking
+ccallcenter_transacciones (0.001777): Cantidad de transacciones que el cliente efectuó durante el mes por el canal de banca telefónica.
+
+negativas para o modelo shapelet:
+mcuentas_saldo (-0.313185): Saldo total de TODAS las cuentas del cliente
+Visa_delinquency (-0.342013): { 0, 1 }  indica si el cliente no llegó a completar el pago mínimo y esta moroso. Estos clientes NO pueden utilizar mas la tarjeta hasta tanto regularicen su situacion. Obviamente si les caen las cuotas de compras anteriores, intereses, punitorios, etc
+foto_mes (-0.546998): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+mcaja_ahorro (-0.787783): Monto total de la caja de ahorro del Paquete Premium
+Visa_Finiciomora (-1.919429): Dias para el inicio de la mora ( el dia siguiente al vencimiento ), contados a la fecha de la foto
+
+=begin
+grupo 3
+mprestamos_personales         0.048835
+internet                      0.018781
+mtransferencias_emitidas      0.012475
+chomebanking_transacciones    0.010856
+ctarjeta_visa                 0.006604
+                                ...   
+mcuentas_saldo               -0.276646
+Visa_delinquency             -0.333617
+foto_mes                     -0.424370
+mcaja_ahorro                 -0.617916
+Visa_Finiciomora             -0.672087
+=end
+principais caracteristicas do grupo 3
+positivas:
+mprestamos_personales (0.048835): Monto total de la deuda restante de todos los préstamos personales del cliente.
+internet (0.018781): indica si el cliente usa servicios de HomeBanking o tiene instalada la app
+mtransferencias_emitidas (0.012475): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+chomebanking_transacciones (0.010856): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+ctarjeta_visa (0.006604): Cantidad de cuentas VISA que posee el cliente. Una cuenta posee un titular y puede llegar a tener varios adicionales. El titular y/o adicionales pueden tener ( o no ) un plástico vigente. Aunque no es común, un cliente SI puede ser titular de más de una cuenta VISA
+
+negativas para o modelo shapelet:
+mcuentas_saldo (-0.276646): Saldo total de TODAS las cuentas del cliente
+Visa_delinquency (-0.333617): { 0, 1 }  indica si el cliente no llegó a completar el pago mínimo y esta moroso. Estos clientes NO pueden utilizar mas la tarjeta hasta tanto regularicen su situacion. Obviamente si les caen las cuotas de compras anteriores, intereses, punitorios, etc
+foto_mes (-0.424370): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+mcaja_ahorro (-0.617916): Monto total de la caja de ahorro del Paquete Premium
+Visa_Finiciomora (-0.672087): Dias para el inicio de la mora ( el dia siguiente al vencimiento ), contados a la fecha de la foto
+
+=begin
+grupo 4
+mprestamos_personales          0.090243
+mtransferencias_emitidas       0.012480
+Master_mfinanciacion_limite    0.010963
+cprestamos_personales          0.006576
+chomebanking_transacciones     0.005725
+                                 ...   
+ctarjeta_visa                 -0.354422
+Visa_status                   -0.359010
+foto_mes                      -0.571683
+mcaja_ahorro                  -0.609555
+Visa_Finiciomora              -1.188105
+=end
+principais caracteristicas do grupo 4
+positivas:
+mprestamos_personales (0.090243): Monto total de la deuda restante de todos los préstamos personales del cliente.
+mtransferencias_emitidas (0.012480): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+Master_mfinanciacion_limite (0.010963): Límite de financiacion de la tarjeta de crédito, expresado en pesos.
+cprestamos_personales (0.006576): Cantidad de préstamos personales vigentes  del cliente
+chomebanking_transacciones (0.005725): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+
+negativas para o modelo shapelet:
+ctarjeta_visa (-0.354422): Cantidad de cuentas VISA que posee el cliente. Una cuenta posee un titular y puede llegar a tener varios adicionales. El titular y/o adicionales pueden tener ( o no ) un plástico vigente. Aunque no es común, un cliente SI puede ser titular de más de una cuenta VISA
+Visa_status (-0.359010): { 0,  6, 7, 9 }   indica el estado de la cuenta de la tarjeta de crédito. 0 abierta,  6 en proceso de cierre, 7 en proceso avanzado de cierre, 9 cuenta cerrada.   Una cuenta cerrada puede volver a abrirse
+foto_mes (-0.571683): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+mcaja_ahorro (-0.609555): Monto total de la caja de ahorro del Paquete Premium
+Visa_Finiciomora (-1.188105): Dias para el inicio de la mora ( el dia siguiente al vencimiento ), contados a la fecha de la foto
+
+=begin
+grupo 5
+cpayroll_trx                         0.335068
+mpayroll                             0.258677
+cextraccion_autoservicio             0.006483
+mextraccion_autoservicio             0.003649
+ctarjeta_visa_debitos_automaticos    0.002858
+                                       ...   
+mtarjeta_visa_consumo               -0.073264
+ctarjeta_visa                       -0.089445
+ccaja_ahorro                        -0.100035
+Visa_mpagominimo                    -0.105734
+foto_mes                            -0.231584
+=end
+principais caracteristicas do grupo 5
+positivas:
+cpayroll_trx (0.335068): Cantidad de Acreditaciones de Haberes en relación de depencia que le hicieron al cliente en ese mes.  Un cliente puede estar en relacion de dependencia con mas de una empresa. Una empresa puede hacerle VARIOS depósitos al mismo empleado durante el mes.  Soalmente se consideran las acreditaciones de empresas que tienen un contrato con el banco.
+mpayroll (0.258677): Monto total que le acreditaron los empleadores “acreditados”  al cliente durante el mes.
+cextraccion_autoservicio (0.006483): Cantidad de extracciones en cajeros automáticos durante el mes
+mextraccion_autoservicio (0.003649): Monto total de extracciones en cajeros automáticos durante el mes
+ctarjeta_visa_debitos_automaticos (0.002858): Cantidad de débitos automáticos debitados durante el mes en las tarjeta de crédito VISA
+
+negativas para o modelo shapelet:
+mtarjeta_visa_consumo (-0.073264):Monto total de los consumos efectuados durante el mes con la tarjeta de crédito VISA
+ctarjeta_visa (-0.089445): Cantidad de cuentas VISA que posee el cliente. Una cuenta posee un titular y puede llegar a tener varios adicionales. El titular y/o adicionales pueden tener ( o no ) un plástico vigente. Aunque no es común, un cliente SI puede ser titular de más de una cuenta VISA
+ccaja_ahorro (-0.100035): Cantidad de cajas de ahorro del Paquete Premium
+Visa_mpagominimo (-0.105734): Monto del pago minimo necesario para no ser moroso de la tarjeta de crédito
+foto_mes (-0.231584): mes correspondiente a la foto de los datos del datawarehouse. La fecha 201907 indica que la foto fue obtenida el 31-julio-2019 a las 23:59:59
+
+=begin
+grupo 6
+chomebanking_transacciones    0.031791
+mtransferencias_emitidas      0.019717
+ctarjeta_visa                 0.014517
+Visa_status                   0.013653
+thomebanking                  0.013123
+                                ...   
+mcuentas_saldo               -0.343936
+mpayroll                     -0.356010
+cdescubierto_preacordado     -0.433157
+mcaja_ahorro                 -0.621951
+ctrx_quarter                 -0.988345
+=end
+principais caracteristicas do grupo 6
+positivas:
+chomebanking_transacciones (0.031791): Cantidad de transacciones por home banking que el cliente hizo durante el mes.
+mtransferencias_emitidas (0.019717): Monto total de transferencias emitidas en todas las cuentas durante el mes. Puede ser transferencias propias o de terceros.
+ctarjeta_visa (0.014517): Cantidad de cuentas VISA que posee el cliente. Una cuenta posee un titular y puede llegar a tener varios adicionales. El titular y/o adicionales pueden tener ( o no ) un plástico vigente. Aunque no es común, un cliente SI puede ser titular de más de una cuenta VISA
+Visa_status (0.013653): { 0,  6, 7, 9 }   indica el estado de la cuenta de la tarjeta de crédito. 0 abierta,  6 en proceso de cierre, 7 en proceso avanzado de cierre, 9 cuenta cerrada.   Una cuenta cerrada puede volver a abrirse
+thomebanking (0.013123): {0, 1} indica si el cliente está adherido al Home Banking
+
+negativas para o modelo shapelet:
+mcuentas_saldo (-0.343936): Saldo total de TODAS las cuentas del cliente
+mpayroll (-0.356010): Monto total que le acreditaron los empleadores “acreditados”  al cliente durante el mes.
+cdescubierto_preacordado (-0.433157): Si tiene un acuerdo de descubierto preacordado
+mcaja_ahorro (-0.621951): Monto total de la caja de ahorro del Paquete Premium
+ctrx_quarter (-0.988345): Cantidad de movimientos voluntarios en las cuentas bancarias ( no tarjeta de credito ) que el cliente realizó en los ultimos 90 dias.
+
+
+#analise dos grupos:
+=begin
+1.0    172932
+0.0     75452
+5.0     14626
+2.0      6087
+3.0      4634
+4.0      4321
+6.0      3145
+7.0       318
+8.0        95
+=end
+grupo 0: 75452 clientes
+grupo 1: 172932 clientes
+grupo 2: 6087 clientes
+grupo 3: 4634 clientes
+grupo 4: 4321 clientes
+grupo 5: 14626 clientes
+grupo 6: 3145 clientes
+grupo 7: 318 clientes
+
+
+**Grupo 0 (Características Positivas):**
+Este grupo é composto por clientes que realizam um grande número de transações por home banking, débitos automáticos na tarjeta de crédito VISA e transferências. A maioria dos clientes deste grupo está registrada no Home Banking. Eles tendem a não receber muitas Acreditações de Haberes em relação de dependência.
+
+**Grupo 1 (Características Positivas):**
+Os clientes deste grupo são distintos por terem uma alta contagem de transações por home banking e por possuírem uma conta ativa na tarjeta de crédito VISA. Eles também fazem transferências substanciais e geralmente têm algum tipo de acordo de descoberto. No entanto, não foram especificadas informações sobre o saldo em suas contas no conjunto de dados fornecido.
+
+**Grupo 2 (Características Positivas):**
+Clientes deste grupo têm uma dívida substancial de empréstimos pessoais, realizam transferências significativas e estão envolvidos em transações por home banking e frequentemente usam serviços de call center. No entanto, não foi especificado se eles mantêm um saldo elevado ou baixo em suas contas, com base nos dados fornecidos.
+
+**Grupo 3 (Características Positivas):**
+Este grupo é composto por clientes com dívidas de empréstimos pessoais, uso frequente da internet e um volume considerável de transferências. Eles também fazem transações por home banking e geralmente possuem contas VISA. No entanto, não foi especificado se eles mantêm um saldo mais alto ou mais baixo em suas contas com base nos dados fornecidos.
+
+**Grupo 4 (Características Positivas):**
+Os clientes deste grupo têm uma dívida substancial de empréstimos pessoais e realizam transferências. Eles têm um limite de financiamento em sua conta de cartão de crédito Master e, muitas vezes, têm contas VISA. No entanto, não foi especificado se eles mantêm um saldo mais alto ou mais baixo em suas contas com base nos dados fornecidos.
+
+**Grupo 5 (Características Positivas):**
+Este grupo é composto por clientes que recebem várias Acreditações de Haberes em relação de dependência. Eles também recebem um montante significativo de pagamento de empregadores acreditados e têm um saldo mais alto em suas contas de caixa de poupança do Paquete Premium. No entanto, eles tendem a usar menos a tarjeta de crédito VISA e cumprem com os pagamentos mínimos.
+
+**Grupo 6 (Características Positivas):**
+Clientes deste grupo fazem muitas transações por home banking e transferências. Eles também têm contas VISA e frequentemente estão registrados no Home Banking. No entanto, não foi especificado se eles mantêm um saldo mais alto ou mais baixo em suas contas com base nos dados fornecidos.
+
+principais diferencas dos grupos:
+Com base nas características positivas fornecidas nos grupos, podemos destacar as principais diferenças entre eles:
+
+**Grupo 0:**
+- Realiza muitas transações por home banking.
+- Tem débitos automáticos na tarjeta de crédito VISA.
+- Realiza transferências significativas.
+- Maioria registrada no Home Banking.
+- Não recebe muitas Acreditações de Haberes em relação de dependência.
+
+**Grupo 1:**
+- Tem alta contagem de transações por home banking.
+- Possui uma conta ativa na tarjeta de crédito VISA.
+- Realiza transferências substanciais.
+- Geralmente tem algum tipo de acordo de descoberto.
+
+**Grupo 2:**
+- Tem uma dívida substancial de empréstimos pessoais.
+- Realiza transferências significativas.
+- Está envolvido em transações por home banking.
+- Frequentemente usa serviços de call center.
+
+**Grupo 3:**
+- Tem dívidas de empréstimos pessoais.
+- Usa serviços de internet com frequência.
+- Realiza um volume considerável de transferências.
+- Geralmente possui contas VISA.
+
+**Grupo 4:**
+- Tem uma dívida substancial de empréstimos pessoais.
+- Realiza transferências.
+- Tem um limite de financiamento em sua conta de cartão de crédito Master.
+- Muitas vezes possui contas VISA.
+
+**Grupo 5:**
+- Recebe várias Acreditações de Haberes em relação de dependência.
+- Recebe um montante significativo de pagamento de empregadores acreditados.
+- Tem um saldo mais alto em suas contas de caixa de poupança do Paquete Premium.
+- Usa menos a tarjeta de crédito VISA e cumpre com os pagamentos mínimos.
+
+**Grupo 6:**
+- Realiza muitas transações por home banking.
+- Realiza transferências.
+- Possui contas VISA.
+- Frequentemente está registrado no Home Banking.
+
+
+Resumo grupos:
+**Grupo 0:**
+Clientes ativos no Home Banking que realizam muitas transações por esse canal, incluindo débitos automáticos na tarjeta de crédito VISA e transferências. Não são focados em Acreditações de Haberes.
+
+**Grupo 1:**
+Clientes com alta atividade no Home Banking e contas ativas na tarjeta de crédito VISA. Realizam transferências substanciais e frequentemente têm algum tipo de acordo de descoberto.
+
+**Grupo 2:**
+Clientes com dívidas de empréstimos pessoais, envolvidos em transações por home banking, transferências e uso frequente de serviços de call center.
+
+**Grupo 3:**
+Clientes com dívidas de empréstimos pessoais, uso frequente de internet e um histórico de transferências significativas. Possuem contas VISA.
+
+**Grupo 4:**
+Clientes com dívidas de empréstimos pessoais e transferências, com um limite de financiamento em suas contas de cartão de crédito Master. Podem possuir contas VISA.
+
+**Grupo 5:**
+Clientes que recebem várias Acreditações de Haberes em relação de dependência e pagamento de empregadores acreditados. Mantêm um saldo mais alto em suas contas de caixa de poupança do Paquete Premium, usam menos a tarjeta de crédito VISA e cumprem com os pagamentos mínimos.
+
+**Grupo 6:**
+Clientes ativos no Home Banking que realizam muitas transações por esse canal, incluindo transferências. Possuem contas VISA e frequentemente estão registrados no Home Banking.
+
+Grupos semelhantes:
+
+1. **Grupo 0 e Grupo 6:** Novo grupo 0
+   - Ambos os grupos são caracterizados por clientes ativos no Home Banking e envolvidos em transações por esse canal. Eles podem ser agrupados como "Clientes Ativos no Home Banking."
+
+2. **Grupo 1 e Grupo 4:** Novo grupo 1
+   - Esses grupos têm características semelhantes, incluindo altas transações por home banking e possuem contas de cartão de crédito (VISA ou Master). Eles podem ser agrupados como "Clientes com Atividade Bancária Online e Contas de Crédito."
+
+3. **Grupo 2 e Grupo 3:** Novo grupo 2
+   - Ambos os grupos têm dívidas de empréstimos pessoais e estão envolvidos em transferências. Eles podem ser agrupados como "Clientes com Empréstimos Pessoais e Atividade Bancária Online."
+
+4. **Grupo 5:** Novo grupo 3
+   - Este grupo é caracterizado por clientes que recebem Acreditações de Haberes e têm saldos mais elevados em suas contas de poupança. Pode ser mantido como um grupo separado de "Clientes com Receita Estável e Saldo Alto."
+
+O Grupo 2 possui a maior média de mcomisiones e mrentabilidad, sugerindo que esse grupo gera uma quantidade significativa de comissões e lucros para o banco.
+
+O Grupo 0 também tem médias substanciais para mcomisiones e mrentabilidad, indicando que este grupo contribui significativamente para o banco em termos de comissões e lucros.
+
+Os Grupos 1 e 3 têm médias menores para ambas as variáveis, sugerindo que eles geram comissões e lucros mais baixos em comparação com os grupos 0 e 2.
+
+
+comparar com mcomisiones > Monto total de las comisiones que ha ganado el banco por ese cliente.
+mrentabilidad > Ganancia total que ha obtenido el banco de ese cliente, en ese mes.
+
+Com base na análise dos dados, observa-se que os Grupos 0 e 2 se destacam em termos de geração de comissões e lucros para o banco, com médias substanciais em mcomisiones e mrentabilidad. Isso sugere que esses grupos contribuem de maneira mais significativa para a receita do banco.
+
+É importante notar que, apesar do Grupo 3 incluir clientes que recebem seus salários no banco, eles não geram comissões e lucros tão expressivos quanto os Grupos 0 e 2. Portanto, a análise sugere que, do ponto de vista da rentabilidade do banco, direcionar esforços para manter e fortalecer os Grupos 0 e 2 pode ser mais benéfico do que focar excessivamente no Grupo 3.
+
+
+
+
+   #4 grupos com rf
+**Grupo 0:**
+Clientes ativos no Home Banking com débitos automáticos na tarjeta de crédito VISA, realizando muitas transferências e registrados no Home Banking. Tendem a manter saldos mais baixos nas contas de caixa de poupança do Paquete Premium e apresentam uma quantidade considerável de movimentos voluntários nas contas bancárias.
+
+**Grupo 1:**
+Clientes com atividade no Home Banking e contas ativas na tarjeta de crédito VISA, envolvidos em transferências e com registros no Home Banking. Tendem a manter saldos mais baixos nas contas de caixa de poupança do Paquete Premium. Uma parte considerável dos clientes recebe Acreditações de Haberes em relação de dependência.
+
+**Grupo 2:**
+Clientes com dívida substancial de empréstimos pessoais, envolvidos em transferências e transações no Home Banking, com contas de cartão de crédito Master e algumas contas VISA. 
+
+**Grupo 3:**
+Clientes que recebem múltiplas Acreditações de Haberes em relação de dependência, realizam extratos frequentes em caixas automáticos e mantêm saldos mais altos nas contas de caixa de poupança do Paquete Premium. Eles fazem menos uso da tarjeta de crédito VISA e cumprem com os pagamentos mínimos.
