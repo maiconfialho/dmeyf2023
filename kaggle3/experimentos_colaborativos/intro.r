@@ -1,10 +1,15 @@
+rm(list = ls()) # remove all objects
+gc() # garbage collection
+
 #carregar dados do arquivo 
-setwd('/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3')
+#setwd('/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3')
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/") # Establezco el Directorio de Trabajo
+
 #df_kaggle3 <- read.csv('./datos/competencia_03_crudo.csv.gz')
 
 library(data.table)
 library(dplyr)
-df_kaggle3 <- fread("./datos/competencia_03_ec.csv.gz")
+df_kaggle3 <- fread("./experimentos_colaborativos/datos/competencia_03_ec.csv.gz")
 
 head(df_kaggle3)
 
