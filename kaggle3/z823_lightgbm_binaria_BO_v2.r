@@ -72,7 +72,7 @@ for (i in seq_along(semillas)) {
         lambda_l1 = 0.0,
         lambda_l2 = 0.0,
         max_bin = 31L,
-        num_iterations = 9999,
+        num_iterations = 20,
         bagging_fraction = 1.0,
         pos_bagging_fraction = 1.0,
         neg_bagging_fraction = 1.0,
@@ -81,17 +81,20 @@ for (i in seq_along(semillas)) {
         drop_rate = 0.1,
         max_drop = 50,
         skip_drop = 0.5,
-        extra_trees = TRUE,
+        extra_trees = FALSE,
         seed = PARAM$lgb_semilla
     )
-    
     # Aquí se cargan los hiperparámetros que se optimizan
     # en la Bayesian Optimization
     PARAM$bo_lgb <- makeParamSet(
-        makeNumericParam("learning_rate", lower = 0.02, upper = 0.3),
-        makeNumericParam("feature_fraction", lower = 0.01, upper = 1.0),
-        makeIntegerParam("num_leaves", lower = 8L, upper = 1024L),
-        makeIntegerParam("min_data_in_leaf", lower = 100L, upper = 50000L)
+        #makeNumericParam("learning_rate", lower = 0.02, upper = 0.3),
+        #makeNumericParam("feature_fraction", lower = 0.01, upper = 1.0),
+        #makeIntegerParam("num_leaves", lower = 8L, upper = 1024L),
+        #makeIntegerParam("min_data_in_leaf", lower = 100L, upper = 50000L)
+        makeNumericParam("learning_rate", 1),
+        makeNumericParam("feature_fraction", 0.4),
+        makeIntegerParam("num_leaves", 40),
+        makeIntegerParam("min_data_in_leaf", 5000)
     )
     
     # Si usted es ambicioso, y tiene paciencia, podria subir este valor a 100
