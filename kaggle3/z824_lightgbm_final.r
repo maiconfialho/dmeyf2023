@@ -16,20 +16,20 @@ require("lightgbm")
 PARAM <- list()
 PARAM$experimento <- "KA8240"
 
-PARAM$input$dataset <- "./datasets/competencia_02.csv.gz"
+PARAM$input$dataset <- "./datos/competencia_03_fe_lag3.csv.gz"
 
 # meses donde se entrena el modelo
 PARAM$input$training <- c(202012, 202101, 202102, 202103, 202104, 202105)
 PARAM$input$future <- c(202107) # meses donde se aplica el modelo
 
-PARAM$finalmodel$semilla <- 102191
+PARAM$finalmodel$semilla <- 100005
 
 # hiperparametros intencionalmente NO optimos
-PARAM$finalmodel$optim$num_iterations <- 730
-PARAM$finalmodel$optim$learning_rate <- 0.0323601846272594
-PARAM$finalmodel$optim$feature_fraction <- 0.909773795582897
-PARAM$finalmodel$optim$min_data_in_leaf <- 4637
-PARAM$finalmodel$optim$num_leaves <- 667
+PARAM$finalmodel$optim$num_iterations <- 18
+PARAM$finalmodel$optim$learning_rate <- 0.0516060767778788
+PARAM$finalmodel$optim$feature_fraction <- 0.464346570655767
+PARAM$finalmodel$optim$min_data_in_leaf <- 1043
+PARAM$finalmodel$optim$num_leaves <- 469
 
 
 # Hiperparametros FIJOS de  lightgbm
@@ -68,7 +68,7 @@ PARAM$finalmodel$lgb_basicos <- list(
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Aqui empieza el programa
-setwd("~/buckets/b1")
+setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
 dataset <- fread(PARAM$input$dataset, stringsAsFactors = TRUE)
