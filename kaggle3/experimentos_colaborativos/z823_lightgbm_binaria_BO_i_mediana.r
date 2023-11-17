@@ -27,7 +27,13 @@ options(error = function() {
 })
 
 
-
+# defino los parametros de la corrida, en una lista, la variable global  PARAM
+#  muy pronto esto se leera desde un archivo formato .yaml
+if (grepl("windows", tolower(Sys.info()["sysname"]))) {
+  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/"
+} else if (grepl("darwin", tolower(Sys.info()["sysname"]))) {
+  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/"
+}
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
@@ -274,7 +280,7 @@ EstimarGanancia_lightgbm <- function(x) {
 
 # Aqui se debe poner la carpeta de la computadora local
 #setwd("~/buckets/b1/") # Establezco el Working Directory
-setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/") # Establezco el Working Directory
+setwd("path") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar el modelo
 dataset <- fread(PARAM$input$dataset)

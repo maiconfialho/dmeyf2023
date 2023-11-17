@@ -1,3 +1,4 @@
+
 # Este script esta pensado para correr en Google Cloud
 #   8 vCPU
 # 128 GB memoria RAM
@@ -30,6 +31,13 @@ options(error = function() {
 
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
+if (grepl("windows", tolower(Sys.info()["sysname"]))) {
+  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/"
+} else if (grepl("darwin", tolower(Sys.info()["sysname"]))) {
+  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/"
+}
+
+
 PARAM <- list()
 
 PARAM$experimento <- "HT8230_ec_sin_input"
@@ -273,8 +281,7 @@ EstimarGanancia_lightgbm <- function(x) {
 # Aqui empieza el programa
 
 # Aqui se debe poner la carpeta de la computadora local
-setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/") # Establezco el Working Directory
-#setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/") # Establezco el Working Directory
+setwd(path) # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar el modelo
 dataset <- fread(PARAM$input$dataset)
@@ -428,6 +435,3 @@ if (!file.exists(kbayesiana)) {
 
 
 cat("\n\nLa optimizacion Bayesiana ha terminado\n")
-
-
-unique(dataset$foto_mes)
