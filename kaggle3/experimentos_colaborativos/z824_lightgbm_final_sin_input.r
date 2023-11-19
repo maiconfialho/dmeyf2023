@@ -22,18 +22,18 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
 PARAM <- list()
 PARAM$experimento <- "KA8240_ec_sin_input"
 
-PARAM$input$dataset <- "./datos/dataset_sem_inputar.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_sem_inputar_ec.csv.gz"
 
 # meses donde se entrena el modelo
-PARAM$input$training <- c(202012, 202101, 202102, 202103, 202104, 202105)
+PARAM$input$training <- c(201904, 201905, 201906, 201907, 201908, 201909)
 PARAM$input$future <- c(202107) # meses donde se aplica el modelo
 
 
-#20 semillas aleatorias
-semillas <- c(528881, 583613, 661417, 894407, 915251,
-              173827, 173839, 173867, 547093, 547103,
-              638269, 638303, 638359, 721181, 837451, 
-              878173, 910771, 910781, 942659, 942661)
+#20 semillas aleatorias no formato de 6 digitos
+semillas <- c(123456,  234567,  345678,  456789,  567890,
+              678901,  789012,  890123,  901234, 101112,
+              111213, 121314, 131415, 141516, 151617,
+              161718, 171819, 181920, 192021, 202122)
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
@@ -86,11 +86,11 @@ for (i in seq_along(semillas)) {
   PARAM$finalmodel$semilla <- semillas[i]
 
   # hiperparametros intencionalmente NO optimos
-  PARAM$finalmodel$optim$num_iterations <- 18
-  PARAM$finalmodel$optim$learning_rate <- 0.0516060767778788
-  PARAM$finalmodel$optim$feature_fraction <- 0.464346570655767
-  PARAM$finalmodel$optim$min_data_in_leaf <- 1043
-  PARAM$finalmodel$optim$num_leaves <- 469
+  PARAM$finalmodel$optim$num_iterations <- 20
+  PARAM$finalmodel$optim$learning_rate <- 0.153335336985178
+  PARAM$finalmodel$optim$feature_fraction <- 0.933963460517741
+  PARAM$finalmodel$optim$min_data_in_leaf <- 19966
+  PARAM$finalmodel$optim$num_leaves <- 601
 
 
   # Hiperparametros FIJOS de  lightgbm
@@ -201,8 +201,8 @@ for (i in seq_along(semillas)) {
 }
 
 write.csv(ganancias,
-       file = paste0(PARAM$experimento, "_ganancias_semillerio.csv"),
-       sep = ","
+      file = paste0(PARAM$experimento, "_ganancias_semillerio.csv"),
+      sep = ","
 )
   
 cat("\n\nLa generacion de los archivos para Kaggle ha terminado\n")

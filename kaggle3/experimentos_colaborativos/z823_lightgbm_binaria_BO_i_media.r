@@ -39,9 +39,9 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
 
-PARAM$experimento <- "HT8230_ec_sin_input_media" # nombre del experimento
+PARAM$experimento <- "HT8230_ec_input_media" # nombre del experimento
 
-PARAM$input$dataset <- "./datos/dataset_inputado_media.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_inputado_media_ec.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion

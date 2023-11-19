@@ -40,7 +40,7 @@ PARAM <- list()
 
 PARAM$experimento <- "HT8230_ec_input_mediana"
 
-PARAM$input$dataset <- "./datos/dataset_inputado_mediana.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_inputado_mediana_ec.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion
@@ -280,7 +280,7 @@ EstimarGanancia_lightgbm <- function(x) {
 
 # Aqui se debe poner la carpeta de la computadora local
 #setwd("~/buckets/b1/") # Establezco el Working Directory
-setwd("path") # Establezco el Working Directory
+setwd(path) # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar el modelo
 dataset <- fread(PARAM$input$dataset)
