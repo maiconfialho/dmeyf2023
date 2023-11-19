@@ -114,3 +114,20 @@ View(tabla_ganancia_media)
 tabla_ganancia_mediana <- dcast(df_ganancias_input_mediana, envios ~ semilla, value.var = "ganancia")
 colnames(tabla_ganancia_mediana)[2:ncol(tabla_ganancia_mediana)] <- paste0("semilla", 1:(ncol(tabla_ganancia_mediana)-1))
 View(tabla_ganancia_mediana)
+
+library(knitr)
+library(dplyr)
+library(kableExtra)
+
+
+tabla_kable_sin_input <- kable(tabla_ganancia_sin_input, "html") %>%
+  kable_styling()  %>% add_header_above(c("Catastrophe Analysis sin Inputar" = 21), escape = FALSE)
+print(tabla_kable_sin_input)
+
+tabla_kable_media <- kable(tabla_ganancia_sin_input, "html") %>%
+  kable_styling()  %>% add_header_above(c("Catastrophe Analysis con Media Inputada" = 21), escape = FALSE)
+print(tabla_kable_media)
+
+tabla_kable_mediana <- kable(tabla_ganancia_sin_input, "html") %>%
+  kable_styling()  %>% add_header_above(c("Catastrophe Analysis con Mediana Inputada" = 21), escape = FALSE)
+print(tabla_kable_mediana)
