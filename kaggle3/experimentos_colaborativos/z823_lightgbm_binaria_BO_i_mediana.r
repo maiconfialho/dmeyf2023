@@ -40,7 +40,8 @@ PARAM <- list()
 
 PARAM$experimento <- "HT8230_ec_input_mediana"
 
-PARAM$input$dataset <- "./datos/dataset_inputado_mediana_ec.csv.gz"
+#PARAM$input$dataset <- "./datos/dataset_inputado_mediana_ec.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_inputado_mediana_por_cliente.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion

@@ -1,0 +1,79 @@
+Sesgos Cognitivos:
+Variaveis com valores diferentes dos que deveriam ser, independente de nulos ou valores setados manualmente, nao trazem a mesma qualidade de dados do que quando essas informacoes sao preenchidas usando alguma estratégia baseada nos dados já existentes, por exemplo a média ou mediana.
+
+Diseno experimental - Grupo a
+1- Baseline
+    - Com o intuito de utilizar os dados para uma análise, o periodo selecionado foi baseado em um periodo onde existam variaveis que estao com todos os registros zerados em um periodo, juntamento com outros periodo aonde essa variavel possua valores para que seja possivel encontrar um valor a partir da media ou mediana dos dados.
+    - O periodo selecionado foi de 201903 ate 201910 utilizando o 202107 como teste
+    - O modelo será treinado com os hiperparametros que retornam o maior lucro com os meses de treinamento 201904, 201905, 201906, 201907, 201908, 201909 e de validacao 201910
+    - Serao utilizados tres modelos para analise:
+        - Um modelo que vai prever a baixa dos clientes utilizando os dados originais, variaveis com valores zerados continuam zerados
+        - Um modelo que vai prever abaixa dos clientes substituindo os valores das variaveis rotas pela média de cada variavel para cada cliente no periodo selecionado
+        - Um modelo que vai prever abaixa dos clientes substituindo os valores das variaveis rotas pela mediana de cada variavel para cada cliente no periodo selecionado
+    - cada modelo sera executado com as mesmas 20 semillas selecionadas e gerará arquivo a partir de 8000 envios até 15000 com intervalo de 500 envios entre cada arquivo
+    - A comparacao dos resultados será feita de duas maneiras diferentes:
+        - Será gerado uma arquivo com a quantidade de envios de cada semilla e a ganancia adquiritada para esses dados comparando com os dados de teste
+        - A primeira, gerando um grafico exibindo a media de lucro para cada semillas
+        - A segunda, gerando um grafico exibindo a media de lucro para cada grupo de envio
+
+    Quantidade de colunas rotas por periodo
+    grafico de colunas zeradoas*****
+
+    variaveis que estao totalmente zeradas por periodo
+    tabela com o nome das colunas zeradas e o periodo**
+
+    Tabela de resultados de ganancias sem imputar
+    tabela***
+    tabela de resultados de ganancia com media imputada
+    tabela***
+    tabela de resultados de ganancia com mediana imputada
+    tabela***
+    Tabela exibindo porcentagem de valores zerados antes da imputacao e depois
+    tabela***
+
+    será feita uma analise estatistica verificando se as valores de media, std, min, max e quartis foram alterados drasticamente
+
+    Dados da otimizacao bayesiana:
+    PARAM$finalmodel$optim$num_iterations <- 54
+    PARAM$finalmodel$optim$learning_rate <- 0.0361647557211168
+    PARAM$finalmodel$optim$feature_fraction <- 0.586329485919379
+    PARAM$finalmodel$optim$min_data_in_leaf <- 19576
+    PARAM$finalmodel$optim$num_leaves <- 10
+
+    semillas:
+    semillas <- c(123456,  234567,  345678,  456789,  567890,
+                    678901,  789012,  890123,  901234, 101112,
+                    111213, 121314, 131415, 141516, 151617,
+                    161718, 171819, 181920, 192021, 202122)
+
+    Dados de teste: PARAM$input$future <- c(202107) # meses donde se aplica el modelo
+
+    Dados de Treino: PARAM$input$training <- c(201904, 201905, 201906, 201907, 201908, 201909)
+
+    
+
+    obseravaoces
+    o que nao for substituido pela media,  é passado para zero, quando todos os dados sao nan, continua nana
+
+
+
+    Problema: Problema #01
+Catastrophe Analysis
+"Encontrar el mejor método para corregir las 'variables rotas' que fueron asignadas a cero"
+
+Grupo A
+
+Hipótesis:
+Variables con valores diferentes de los que deberían ser, independientemente de nulos o valores establecidos manualmente, no aportan la misma calidad de datos que cuando esta información se llena utilizando alguna estrategia basada en los datos ya existentes, como por ejemplo, la media o mediana.
+
+Diseño experimental:
+
+* Con el propósito de utilizar los datos para un análisis, el período seleccionado se basó en un periodo donde existen variables que tienen todos los registros en cero, junto con otro periodo donde esa variable tiene valores para que sea posible encontrar un valor a partir de la media o mediana de los datos.
+* El periodo seleccionado fue de 201903 a 201910, utilizando 202107 como prueba.
+* El modelo se entrenará con los hiperparámetros que devuelvan la mayor ganancia con los meses de entrenamiento 201904, 201905, 201906, 201907, 201908, 201909 y de validación 201910.
+* Se utilizarán tres modelos para el análisis:
+	- Un modelo que devolverá la ganancia utilizando los datos originales, las variables con valores en cero seguirán siendo cero.
+	- Un modelo que devolverá la ganancia sustituyendo los valores de las variables rotas por la media de cada variable para cada cliente en el periodo seleccionado.
+	- Un modelo que devolverá la ganancia sustituyendo los valores de las variables rotas por la mediana de cada variable para cada cliente en el periodo seleccionado.
+* Cada modelo se ejecutará con las mismas 20 semillas seleccionadas y generará un archivo desde 8000 envíos hasta 15000 con un intervalo de 500 envíos entre cada archivo.
+* Por fin, comparamos las ganancias generadas por cada modelo.

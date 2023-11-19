@@ -42,7 +42,8 @@ PARAM <- list()
 
 PARAM$experimento <- "HT8230_ec_sin_input"
 
-PARAM$input$dataset <- "./datos/dataset_sem_inputar_ec.csv.gz"
+#PARAM$input$dataset <- "./datos/dataset_sem_inputar_ec.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_sem_inputar_por_cliente.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion
