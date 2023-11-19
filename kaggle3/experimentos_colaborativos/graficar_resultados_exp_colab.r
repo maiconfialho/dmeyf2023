@@ -103,5 +103,14 @@ ggplot(combined_df_sem, aes(x = semilla, y = ganancia_media, color = experimento
   ) +
   scale_y_continuous(labels = scales::comma)  # Quitar la notación científica y agregar separadores de miles al eje y
 
+tabla_ganancia_sin_input <- dcast(df_ganancias_sin_input, envios ~ semilla, value.var = "ganancia")
+colnames(tabla_ganancia_sin_input)[2:ncol(tabla_ganancia_sin_input)] <- paste0("semilla", 1:(ncol(tabla_ganancia_sin_input)-1))
+View(tabla_ganancia_sin_input)
 
+tabla_ganancia_media <- dcast(df_ganancias_input_media, envios ~ semilla, value.var = "ganancia")
+colnames(tabla_ganancia_media)[2:ncol(tabla_ganancia_media)] <- paste0("semilla", 1:(ncol(tabla_ganancia_media)-1))
+View(tabla_ganancia_media)
 
+tabla_ganancia_mediana <- dcast(df_ganancias_input_mediana, envios ~ semilla, value.var = "ganancia")
+colnames(tabla_ganancia_mediana)[2:ncol(tabla_ganancia_mediana)] <- paste0("semilla", 1:(ncol(tabla_ganancia_mediana)-1))
+View(tabla_ganancia_mediana)
