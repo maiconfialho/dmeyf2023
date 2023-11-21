@@ -22,7 +22,7 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
 PARAM <- list()
 PARAM$experimento <- "KA8240_ec_sin_input"
 
-PARAM$input$dataset <- "./datos/dataset_sem_inputar_ec.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_sem_inputar_por_cliente.csv.gz"
 
 # meses donde se entrena el modelo
 PARAM$input$training <- c(201904, 201905, 201906, 201907, 201908, 201909)
@@ -86,11 +86,11 @@ for (i in seq_along(semillas)) {
   PARAM$finalmodel$semilla <- semillas[i]
 
   # hiperparametros intencionalmente NO optimos
-  PARAM$finalmodel$optim$num_iterations <- 20
-  PARAM$finalmodel$optim$learning_rate <- 0.153335336985178
-  PARAM$finalmodel$optim$feature_fraction <- 0.933963460517741
-  PARAM$finalmodel$optim$min_data_in_leaf <- 19966
-  PARAM$finalmodel$optim$num_leaves <- 601
+  PARAM$finalmodel$optim$num_iterations <- 17
+  PARAM$finalmodel$optim$learning_rate <- 0.0247245620865124
+  PARAM$finalmodel$optim$feature_fraction <- 0.88313790199988
+  PARAM$finalmodel$optim$min_data_in_leaf <- 20946
+  PARAM$finalmodel$optim$num_leaves <- 678
 
 
   # Hiperparametros FIJOS de  lightgbm

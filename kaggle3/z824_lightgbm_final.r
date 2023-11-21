@@ -14,22 +14,22 @@ require("lightgbm")
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
-PARAM$experimento <- "KA8240"
+PARAM$experimento <- "KA8240_competencia_03"
 
 PARAM$input$dataset <- "./datos/competencia_03_fe_lag3.csv.gz"
 
 # meses donde se entrena el modelo
-PARAM$input$training <- c(202012, 202101, 202102, 202103, 202104, 202105)
-PARAM$input$future <- c(202107) # meses donde se aplica el modelo
+PARAM$input$training <- c(201906, 201907, 201908, 201909, 201910, 201911, 201912, 202001, 202012, 202101, 202102, 202103)
+PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
 PARAM$finalmodel$semilla <- 100005
 
 # hiperparametros intencionalmente NO optimos
-PARAM$finalmodel$optim$num_iterations <- 18
-PARAM$finalmodel$optim$learning_rate <- 0.0516060767778788
-PARAM$finalmodel$optim$feature_fraction <- 0.464346570655767
-PARAM$finalmodel$optim$min_data_in_leaf <- 1043
-PARAM$finalmodel$optim$num_leaves <- 469
+PARAM$finalmodel$optim$num_iterations <- 20
+PARAM$finalmodel$optim$learning_rate <- 1.0
+PARAM$finalmodel$optim$feature_fraction <- 0.4
+PARAM$finalmodel$optim$min_data_in_leaf <- 5000
+PARAM$finalmodel$optim$num_leaves <- 40
 
 
 # Hiperparametros FIJOS de  lightgbm
@@ -59,7 +59,7 @@ PARAM$finalmodel$lgb_basicos <- list(
   max_drop = 50, # <=0 means no limit
   skip_drop = 0.5, # 0.0 <= skip_drop <= 1.0
 
-  extra_trees = TRUE, # Magic Sauce
+  extra_trees = FALSE, # Magic Sauce
 
   seed = PARAM$finalmodel$semilla
 )

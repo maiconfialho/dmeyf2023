@@ -6,6 +6,9 @@ gc() # garbage collection
 require("data.table")
 require("lightgbm")
 library(ggplot2)
+library(knitr)
+library(dplyr)
+library(kableExtra)
 
 
 
@@ -75,8 +78,8 @@ ggplot(combined_df_env, aes(x = envios, y = ganancia_media, color = experimento)
   geom_line(size = 1, aes(group = experimento)) + 
   geom_point(size = 4, aes(group = experimento)) +
   labs(title = "Comparación de Ganancias en Tres Experimentos - Ganancia média por semilla",
-       x = "Envios",
-       y = "Ganancia Media") +
+        x = "Envios",
+        y = "Ganancia Media") +
   theme_minimal() +
   scale_color_manual(values = c("Sin Input" = "blue", "Media Inputada" = "red", "Mediana Inputada" = "green")) +
   theme(
@@ -92,8 +95,8 @@ ggplot(combined_df_sem, aes(x = semilla, y = ganancia_media, color = experimento
   geom_line(size = 1, aes(group = experimento)) + 
   geom_point(size = 4, aes(group = experimento)) +
   labs(title = "Comparación de Ganancias en Tres Experimentos - Ganancia média por envio",
-       x = "Semilla",
-       y = "Ganancia Media") +
+        x = "Semilla",
+        y = "Ganancia Media") +
   theme_minimal() +
   scale_color_manual(values = c("Sin Input" = "blue", "Media Inputada" = "red", "Mediana Inputada" = "green")) +
   theme(
@@ -105,29 +108,24 @@ ggplot(combined_df_sem, aes(x = semilla, y = ganancia_media, color = experimento
 
 tabla_ganancia_sin_input <- dcast(df_ganancias_sin_input, envios ~ semilla, value.var = "ganancia")
 colnames(tabla_ganancia_sin_input)[2:ncol(tabla_ganancia_sin_input)] <- paste0("semilla", 1:(ncol(tabla_ganancia_sin_input)-1))
-View(tabla_ganancia_sin_input)
+#View(tabla_ganancia_sin_input)
 
 tabla_ganancia_media <- dcast(df_ganancias_input_media, envios ~ semilla, value.var = "ganancia")
 colnames(tabla_ganancia_media)[2:ncol(tabla_ganancia_media)] <- paste0("semilla", 1:(ncol(tabla_ganancia_media)-1))
-View(tabla_ganancia_media)
+#View(tabla_ganancia_media)
 
 tabla_ganancia_mediana <- dcast(df_ganancias_input_mediana, envios ~ semilla, value.var = "ganancia")
 colnames(tabla_ganancia_mediana)[2:ncol(tabla_ganancia_mediana)] <- paste0("semilla", 1:(ncol(tabla_ganancia_mediana)-1))
-View(tabla_ganancia_mediana)
-
-library(knitr)
-library(dplyr)
-library(kableExtra)
-
+#View(tabla_ganancia_mediana)
 
 tabla_kable_sin_input <- kable(tabla_ganancia_sin_input, "html") %>%
   kable_styling()  %>% add_header_above(c("Catastrophe Analysis sin Inputar" = 21), escape = FALSE)
 print(tabla_kable_sin_input)
 
-tabla_kable_media <- kable(tabla_ganancia_sin_input, "html") %>%
+tabla_kable_media <- kable(tabla_ganancia_media, "html") %>%
   kable_styling()  %>% add_header_above(c("Catastrophe Analysis con Media Inputada" = 21), escape = FALSE)
 print(tabla_kable_media)
 
-tabla_kable_mediana <- kable(tabla_ganancia_sin_input, "html") %>%
+tabla_kable_mediana <- kable(tabla_ganancia_mediana, "html") %>%
   kable_styling()  %>% add_header_above(c("Catastrophe Analysis con Mediana Inputada" = 21), escape = FALSE)
 print(tabla_kable_mediana)
