@@ -30,9 +30,9 @@ options(error = function() {
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 if (grepl("windows", tolower(Sys.info()["sysname"]))) {
-  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/"
+  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/experimentos_colaborativos/"
 } else if (grepl("darwin", tolower(Sys.info()["sysname"]))) {
-  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/"
+  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/experimentos_colaborativos/"
 }
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml

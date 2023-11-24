@@ -26,7 +26,7 @@ PARAM$input$dataset <- "./datos/competencia_03_fe_lag3.csv.gz"
 PARAM$input$training <- c(201906, 201907, 201908, 201909, 201910, 201911, 201912, 202001, 202012, 202101, 202102, 202103)
 PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
-semillas <- replicate(20, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
+semillas <- replicate(30, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
 
 
 #semillas <- c(528881, 583613, 661417, 894407, 915251,

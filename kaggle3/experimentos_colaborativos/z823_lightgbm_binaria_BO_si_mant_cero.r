@@ -1,3 +1,4 @@
+
 # Este script esta pensado para correr en Google Cloud
 #   8 vCPU
 # 128 GB memoria RAM
@@ -27,6 +28,7 @@ options(error = function() {
 })
 
 
+
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 if (grepl("windows", tolower(Sys.info()["sysname"]))) {
@@ -35,14 +37,13 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
   path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/experimentos_colaborativos/"
 }
 
-# defino los parametros de la corrida, en una lista, la variable global  PARAM
-#  muy pronto esto se leera desde un archivo formato .yaml
+
 PARAM <- list()
 
-PARAM$experimento <- "HT8230_ec_input_media" # nombre del experimento
+PARAM$experimento <- "HT8230_ec_sin_input_roto"
 
-#PARAM$input$dataset <- "./datos/dataset_inputado_media_ec.csv.gz"
-PARAM$input$dataset <- "./datos/dataset_inputado_media_por_cliente.csv.gz"
+#PARAM$input$dataset <- "./datos/dataset_sem_inputar_ec.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_sem_imputar_roto.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion
@@ -281,7 +282,6 @@ EstimarGanancia_lightgbm <- function(x) {
 # Aqui empieza el programa
 
 # Aqui se debe poner la carpeta de la computadora local
-#setwd("~/buckets/b1/") # Establezco el Working Directory
 setwd(path) # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar el modelo
@@ -373,6 +373,7 @@ dvalidate <- lgb.Dataset(
     ifelse(clase_ternaria == "BAJA+2", 1.0000001, 
       ifelse(clase_ternaria == "BAJA+1", 1.0, 1.0))],
   free_raw_data = FALSE
+  )
 )
 
 

@@ -32,9 +32,9 @@ options(error = function() {
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
 
-PARAM$experimento <- "HT8230"
+PARAM$experimento <- "HT8230_fe_mediana3"
 
-PARAM$input$dataset <- "./datos/competencia_03_fe_lag3.csv.gz"
+PARAM$input$dataset <- "./datos/competencia_03_mediana3_fe_lag3.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion

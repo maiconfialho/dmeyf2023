@@ -21,10 +21,10 @@
 
   PARAM <- list()
   #PARAM$experimento <- "KA8240_ec_input_mediana"
-  PARAM$experimento <- "KA8240_ec_input_mediana"
+  PARAM$experimento <- "KA8240_ec_input_mediana_total"
   
   #PARAM$input$dataset <- "./datos/dataset_inputado_mediana_por_cliente.csv.gz"
-  PARAM$input$dataset <- "./datos/dataset_inputado_mediana_por_cliente.csv.gz"
+  PARAM$input$dataset <- "./datos/dataset_inputado_mediana_total_por_cliente.csv.gz"
   
   # meses donde se entrena el modelo
   PARAM$input$training <- c(201904, 201905, 201906, 201907, 201908, 201909)
@@ -88,11 +88,11 @@
     PARAM$finalmodel$semilla <- semillas[i]
 
     # hiperparametros intencionalmente NO optimos
-    PARAM$finalmodel$optim$num_iterations <- 45
-    PARAM$finalmodel$optim$learning_rate <- 0.10905429327271
-    PARAM$finalmodel$optim$feature_fraction <- 0.503639518359035
-    PARAM$finalmodel$optim$min_data_in_leaf <- 36327
-    PARAM$finalmodel$optim$num_leaves <- 404
+    PARAM$finalmodel$optim$num_iterations <- 32
+    PARAM$finalmodel$optim$learning_rate <- 0.0270757600474778
+    PARAM$finalmodel$optim$feature_fraction <- 0.311251642664581
+    PARAM$finalmodel$optim$min_data_in_leaf <- 10422
+    PARAM$finalmodel$optim$num_leaves <- 8
 
 
     # Hiperparametros FIJOS de  lightgbm

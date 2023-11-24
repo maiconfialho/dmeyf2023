@@ -14,15 +14,15 @@ require("lightgbm")
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 if (grepl("windows", tolower(Sys.info()["sysname"]))) {
-  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/"
+  path <- "C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/experimentos_colaborativos/"
 } else if (grepl("darwin", tolower(Sys.info()["sysname"]))) {
-  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/"
+  path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/experimentos_colaborativos/"
 }
 
 PARAM <- list()
 PARAM$experimento <- "KA8240_ec_sin_input"
 
-PARAM$input$dataset <- "./datos/dataset_sem_inputar_por_cliente.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_sem_imputar_por_cliente.csv.gz"
 
 # meses donde se entrena el modelo
 PARAM$input$training <- c(201904, 201905, 201906, 201907, 201908, 201909)
@@ -85,14 +85,12 @@ for (i in seq_along(semillas)) {
   
   PARAM$finalmodel$semilla <- semillas[i]
 
-  # hiperparametros intencionalmente NO optimos
-  PARAM$finalmodel$optim$num_iterations <- 17
-  PARAM$finalmodel$optim$learning_rate <- 0.0247245620865124
-  PARAM$finalmodel$optim$feature_fraction <- 0.88313790199988
-  PARAM$finalmodel$optim$min_data_in_leaf <- 20946
-  PARAM$finalmodel$optim$num_leaves <- 678
-
-
+  PARAM$finalmodel$optim$num_iterations <- 15
+  PARAM$finalmodel$optim$learning_rate <- 0.233328907422256
+  PARAM$finalmodel$optim$feature_fraction <- 0.879250114493479
+  PARAM$finalmodel$optim$min_data_in_leaf <- 18644
+  PARAM$finalmodel$optim$num_leaves <- 940
+  
   # Hiperparametros FIJOS de  lightgbm
   PARAM$finalmodel$lgb_basicos <- list(
     boosting = "gbdt", # puede ir  dart  , ni pruebe random_forest

@@ -34,15 +34,14 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
 } else if (grepl("darwin", tolower(Sys.info()["sysname"]))) {
   path <- "/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3/experimentos_colaborativos/"
 }
-
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
 
-PARAM$experimento <- "HT8230_ec_input_media" # nombre del experimento
+PARAM$experimento <- "HT8230_ec_input_mediana_total"
 
-#PARAM$input$dataset <- "./datos/dataset_inputado_media_ec.csv.gz"
-PARAM$input$dataset <- "./datos/dataset_inputado_media_por_cliente.csv.gz"
+#PARAM$input$dataset <- "./datos/dataset_inputado_mediana_ec.csv.gz"
+PARAM$input$dataset <- "./datos/dataset_inputado_mediana_total_por_cliente.csv.gz"
 
 # los meses en los que vamos a entrenar
 #  mucha magia emerger de esta eleccion
