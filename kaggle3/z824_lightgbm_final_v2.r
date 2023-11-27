@@ -18,28 +18,37 @@ if (grepl("windows", tolower(Sys.info()["sysname"]))) {
 }
 
 PARAM <- list()
-PARAM$experimento <- "KA8240_competencia_03_40s"
+PARAM$experimento <- "KA8240_competencia_03_lgbm_param_fix"
 
-PARAM$input$dataset <- "./datos/competencia_03_fe_lag3.csv.gz"
+PARAM$input$dataset <- "./datos/competencia_03_lightgbm_fe_lag3.csv.gz"
 
 # meses donde se entrena el modelo
-PARAM$input$training <- c(201906, 201907, 201908, 201909, 201910, 201911, 201912, 202001, 202012, 202101, 202102, 202103)
+PARAM$input$training <- c(201906, 201907, 201908, 201909, 201910, 201911, 201912, 202001, 202012, 202101, 202102, 202103, 202106, 202107)
 PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
-semillas <- replicate(30, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
+#semillas <- replicate(20, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
 
 
-#semillas <- c(528881, 583613, 661417, 894407, 915251,
-#              173827, 173839, 173867, 547093, 547103,
-#              638269, 638303, 638359, 721181, 837451,
-#              878173, 910771, 910781, 942659, 942661)
+semillas <- c(528881, 583613, 661417, 894407, 915251,
+              173827, 173839, 173867, 547093, 547103,
+              638269, 638303, 638359, 721181, 837451,
+              878173, 910771, 910781, 942659, 942661)
 
-# hiperparâmetros intencionalmente NÃO otimizados
-PARAM$finalmodel$optim$num_iterations <- 18
-PARAM$finalmodel$optim$learning_rate <- 0.0516060767778788
-PARAM$finalmodel$optim$feature_fraction <- 0.464346570655767
-PARAM$finalmodel$optim$min_data_in_leaf <- 1043
-PARAM$finalmodel$optim$num_leaves <- 469
+#melhores hp
+#Extra_trees = TRUE
+#PARAM$finalmodel$optim$num_iterations <- 15
+#PARAM$finalmodel$optim$learning_rate <- 0.0556545034638839
+#PARAM$finalmodel$optim$feature_fraction <- 0.987208696675516
+#PARAM$finalmodel$optim$min_data_in_leaf <- 7502
+#PARAM$finalmodel$optim$num_leaves <- 858
+
+#param fix
+Extra_trees = FALSE
+PARAM$finalmodel$optim$num_iterations <- 20
+PARAM$finalmodel$optim$learning_rate <- 1
+PARAM$finalmodel$optim$feature_fraction <- 0.4
+PARAM$finalmodel$optim$min_data_in_leaf <- 5000
+PARAM$finalmodel$optim$num_leaves <- 40
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
@@ -127,7 +136,7 @@ for (semilla in semillas) {
     max_drop = 50, # <=0 means no limit
     skip_drop = 0.5, # 0.0 <= skip_drop <= 1.0
     
-    extra_trees = TRUE, # Magic Sauce
+    extra_trees = Extra_trees, # Magic Sauce
     
     seed = PARAM$finalmodel$semilla
   )
