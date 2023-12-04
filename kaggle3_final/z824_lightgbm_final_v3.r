@@ -30,7 +30,7 @@ PARAM$input$training <- c(201902, 201903, 201904, 201905, 201906, 201907, 201908
 
 PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
-semillas <- replicate(50, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
+semillas <- replicate(20, paste(sample(0:9, 6, replace = TRUE), collapse = ""))
 
 
 #semillas <- c(528881, 583613, 661417, 894407, 915251,

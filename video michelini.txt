@@ -1,0 +1,15 @@
+video
+* falar que foi utilizado lightgbm para atingir a ganancia de 110, foi selecionado periodos especificos e feito feature engineering, alem de busca bayesiana de parametros . detalhar:
+
+* nao havia informacoes se os clientes sairam ou nao, consideramos que clientes que nao tinham mais registros sairam do paquete
+* foi criada uma classe ternaria aonde indicava se o cliente continuava no paquete, ou se saiu dois meses depois ou um mes depois
+* foi utilizado o periodo 201906, 201907, 201908, 201909, 201910, 201911, 201912, 202001, 202012, 202101, 202102, 202103, 202106, 202107, 202109, excluindo o periodo de pandemia e buscando utilizar periodo suq epossuiam variaveis rotas que poderiam ser aproveitadas
+    - deste periodo foram selecionadas variaveis que possuiam todos os registros zerados em um periodo e esses valores foram substituidos por nan para que sejam manipulados pelo lightgbm. ( exibir tabela de campos rotos e campos rotos ants e depois)
+* foi feito feature engineering criando novos campos de lags para "series temporais",  totalizacao de dados importantes como saldo, deudas e activos e foram adicionados campos indicando se determinados valores aumentaram ou diminuiram desde o mes anterior, por exemplo numero de inveriones, numero de cartoes, contas com saldos, etc(talvez listar todas)
+* apos isso foi executada uma busca bayesiana para escolher os melhores hiperparamtros do modelo, utilizando todo o periodo passado acima, excluindo o periodo a prever (202109) e os periodos de teste(202107) e validacao(2022106)
+* para calcular os melhores hiperparamtros a busca foi baseada na maior ganancia, ou seja, os hiperparametros que trariam um maior valor de ganancia para o banco, considerando que um cliente que continuasse apos o envio de estimulo geraria um lucro de 273000 e um cliente que abandonasse o paquete apos o estimulo geraria um prejuizo de 7000
+* utilizados os hiperparemtros fixos: Listar os hiperparametros
+* utilizamos a busca bayesiana para definir os 4 melhores valores para os hiperpametros: listar os hiperparametrso 
+* realizando 50 iteracoes
+* os melhores hiperparametros foram encontrados, que geraram uma ganancia de :
+* para a predicao dos clientes que sairiam dos paquetes, utilizamos todo o periodo como treinamento, gerando um conjunto de 20 semillas para diminuir a chance de overfitting onde al final, executamos o modelo para todas as 20 semillas e no final fazemos uma media da probabilidade de todas as 20 semillas, convertendo para 1 ou 0 as maiores probabilidades de sairem considerando essa media calculada

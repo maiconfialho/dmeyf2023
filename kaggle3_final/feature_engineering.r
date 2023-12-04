@@ -4,11 +4,11 @@ gc() # garbage collection
 require("data.table")
 library(dplyr)
 
-#setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/") # Establezco el Directorio de Trabajo
-setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3/") # Establezco el Directorio de Trabajo
+setwd("/Users/maiconfialho/Documents/Mestrado/2023-2/dmeyf2023/kaggle3_final/") # Establezco el Directorio de Trabajo
+#setwd("C:/Users/maico/Documents/Mestrado/dmeyf2023/kaggle3_final/") # Establezco el Directorio de Trabajo
 #dataset <- fread("./datos/dataset_inputado_media_por_cliente_3_meses.csv.gz")
 #dataset <- fread("./datos/dataset_inputado_mediana_por_cliente_3_meses.csv.gz")
-dataset <- fread("./datos/competencia_03.csv.gz")
+dataset <- fread("./competencia_03.csv.gz")
 
 dataset <- dataset[order(numero_de_cliente, foto_mes)]
 
@@ -225,6 +225,6 @@ dataset <- dataset %>% select(-one_of(columnas_para_eliminar))
 #nans_qty <- sum(unlist(nans))
 
 fwrite(dataset,
-        "./datos/competencia_03_fe_lag3.csv.gz",
+        "./competencia_03_fe_lag3.csv.gz",
         logical01= TRUE,
         sep= "," )
